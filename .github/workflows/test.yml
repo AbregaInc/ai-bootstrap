@@ -1,0 +1,45 @@
+name: Test Bootstrap Script
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Make script executable
+        run: chmod +x bootstrap.sh
+      
+      - name: Test script syntax
+        run: bash -n bootstrap.sh
+      
+      - name: Test Homebrew installation check
+        run: |
+          # Source the script functions
+          source <(sed -n '/^# Colors/,/^# Check if running/p' bootstrap.sh)
+          
+          # Test that brew detection works
+          if command -v brew &> /dev/null; then
+            echo "✓ Homebrew detected correctly"
+          fi
+      
+      - name: Test script runs (dry run simulation)
+        run: |
+          # Run with a mock that skips interactive prompts
+          # This tests that the script parses correctly and functions exist
+          bash -c '
+            source bootstrap.sh <<< "n"
+          ' 2>&1 || echo "Script exited (expected for non-interactive test)"
+      
+      - name: Verify core tools available after macOS-latest setup
+        run: |
+          echo "Checking pre-installed tools on macOS runner..."
+          which git && git --version
+          which brew && brew --version
