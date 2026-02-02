@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Bootstrap - Set Up Your Mac for AI Coding in One Command</title>
+    <meta name="description" content="One command to install everything you need for AI-assisted coding: Homebrew, Git, Node.js, GitHub CLI, and AI coding tools like Codex and Claude Code.">
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --border: #30363d;
+            --text: #e6edf3;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --green: #3fb950;
+            --purple: #a371f7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            padding: 4rem 0 3rem;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+        }
+        
+        .command-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .command-section h2 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        
+        .command-box {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        
+        .command-text {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.95rem;
+            color: var(--green);
+            word-break: break-all;
+        }
+        
+        .copy-btn {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+        
+        .copy-btn:hover {
+            opacity: 0.9;
+        }
+        
+        .copy-btn.copied {
+            background: var(--green);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .feature {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .steps {
+            margin: 3rem 0;
+        }
+        
+        .steps h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-number {
+            background: var(--purple);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .step-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .requirements {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .requirements h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .requirements ul {
+            list-style: none;
+        }
+        
+        .requirements li {
+            color: var(--text-muted);
+            padding: 0.25rem 0;
+        }
+        
+        .requirements li::before {
+            content: "✓ ";
+            color: var(--green);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🚀</div>
+            <h1>AI Bootstrap</h1>
+            <p class="tagline">Set up your Mac for AI coding in one command</p>
+        </header>
+        
+        <section class="command-section">
+            <h2>Run this in Terminal</h2>
+            <div class="command-box">
+                <code class="command-text">curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash</code>
+                <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">🍺</div>
+                <h3>Homebrew</h3>
+                <p>Package manager for macOS</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📦</div>
+                <h3>Git</h3>
+                <p>Version control</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💚</div>
+                <h3>Node.js LTS</h3>
+                <p>Via NVM for easy version management</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🐙</div>
+                <h3>GitHub CLI</h3>
+                <p>Authenticate and manage repos</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <h3>Codex CLI</h3>
+                <p>OpenAI's coding assistant</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <h3>Claude Code</h3>
+                <p>Anthropic's coding assistant</p>
+            </div>
+        </section>
+        
+        <section class="steps">
+            <h2>How it works</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Copy the command</h3>
+                    <p>Click the copy button above to copy the install command</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Open Terminal</h3>
+                    <p>Press Cmd+Space, type "Terminal", press Enter</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Paste and run</h3>
+                    <p>Paste the command (Cmd+V) and press Enter</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Follow the prompts</h3>
+                    <p>The script explains each step and asks before installing</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="requirements">
+            <h2>Requirements</h2>
+            <ul>
+                <li>macOS (Apple Silicon or Intel)</li>
+                <li>Admin password for your Mac</li>
+                <li>Internet connection</li>
+            </ul>
+        </section>
+        
+        <footer>
+            <p>
+                <a href="https://github.com/AbregaInc/ai-bootstrap">View on GitHub</a> · 
+                <a href="https://raw.githubusercontent.com/abrega/ai-bootstrap/main/bootstrap.sh">View Script Source</a>
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        function copyCommand(btn) {
+            const command = 'curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash';
+            navigator.clipboard.writeText(command).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
