@@ -120,7 +120,7 @@ install_homebrew() {
         print_info "When you type it, you won't see any characters - that's normal!"
         echo ""
         
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         
         # Add Homebrew to PATH for Apple Silicon Macs
         if [[ -f /opt/homebrew/bin/brew ]]; then
