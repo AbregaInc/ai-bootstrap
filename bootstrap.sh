@@ -300,29 +300,20 @@ install_ai_tools() {
     
     # Codex CLI
     echo ""
-    if ask_yes_no "Install Codex CLI?"; then
+    if ask_yes_no "Install Codex CLI (OpenAI)?"; then
         print_step "Installing Codex CLI..."
         npm install -g @openai/codex
         print_success "Codex CLI installed!"
-        print_info "Run 'codex' to start using it. You'll need an OpenAI API key."
-    fi
-    
-    # OpenCode
-    echo ""
-    if ask_yes_no "Install OpenCode?"; then
-        print_step "Installing OpenCode..."
-        npm install -g @anthropics/opencode
-        print_success "OpenCode installed!"
-        print_info "Run 'opencode' to start using it."
+        print_info "Run 'codex' to start using it."
     fi
     
     # Claude Code
     echo ""
-    if ask_yes_no "Install Claude Code?"; then
+    if ask_yes_no "Install Claude Code (Anthropic)?"; then
         print_step "Installing Claude Code..."
         npm install -g @anthropic-ai/claude-code
         print_success "Claude Code installed!"
-        print_info "Run 'claude' to start using it. You'll need an Anthropic API key."
+        print_info "Run 'claude' to start using it."
     fi
     
     press_enter
