@@ -363,28 +363,31 @@
         .instructions-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
+            gap: 24px;
         }
         
         @media (max-width: 768px) {
             .instructions-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                gap: 24px;
             }
         }
         
         .instruction {
+            background: var(--white);
+            border: 1px solid var(--black);
+            padding: 28px;
             position: relative;
-            padding-left: 56px;
         }
         
         .instruction-number {
             position: absolute;
-            left: 0;
-            top: 0;
+            top: -1px;
+            left: -1px;
             width: 40px;
             height: 40px;
-            border: 2px solid var(--black);
+            background: var(--black);
+            color: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -396,7 +399,8 @@
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 0.02em;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            margin-left: 48px;
             text-transform: uppercase;
         }
         
@@ -419,9 +423,10 @@
         
         .substeps {
             list-style: none;
-            background: var(--white);
-            border: 1px solid var(--black);
+            background: var(--paper);
+            border: 1px solid rgba(0,0,0,0.1);
             padding: 16px 20px;
+            margin-top: 16px;
         }
         
         .substeps li {
@@ -497,17 +502,7 @@
             padding: 48px;
             position: relative;
             margin-bottom: 48px;
-        }
-        
-        .support-block::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-            background-size: 24px 24px;
-            pointer-events: none;
+            z-index: 2;
         }
         
         .support-tag {
@@ -629,7 +624,7 @@
             </div>
             <div class="header-right">
                 <div class="version-tag">Revision 1.0</div>
-                <div class="date-tag">2025.02.02</div>
+                <div class="date-tag">2026.02.02</div>
             </div>
         </header>
         
