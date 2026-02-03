@@ -307,6 +307,15 @@ install_ai_tools() {
         print_info "Run 'codex' to start using it."
     fi
     
+    # OpenCode
+    echo ""
+    if ask_yes_no "Install OpenCode?"; then
+        print_step "Installing OpenCode..."
+        npm install -g opencode-ai
+        print_success "OpenCode installed!"
+        print_info "Run 'opencode' to start using it."
+    fi
+    
     # Claude Code
     echo ""
     if ask_yes_no "Install Claude Code (Anthropic)?"; then
@@ -350,13 +359,13 @@ show_completion() {
     echo ""
     print_header "Next Steps"
     
-    echo "1. ${BOLD}Open a new terminal${NC} to ensure all changes take effect"
+    echo -e "1. ${BOLD}Open a new terminal${NC} to ensure all changes take effect"
     echo ""
-    echo "2. ${BOLD}Get API keys${NC} for the AI tools you installed:"
+    echo -e "2. ${BOLD}Get API keys${NC} for the AI tools you installed:"
     echo "   • OpenAI (for Codex): https://platform.openai.com/api-keys"
     echo "   • Anthropic (for Claude): https://console.anthropic.com/"
     echo ""
-    echo "3. ${BOLD}Start coding!${NC} Try running one of the AI tools in a project directory."
+    echo -e "3. ${BOLD}Start coding!${NC} Try running one of the AI tools in a project directory."
     echo ""
     
     print_info "Happy coding! 🚀"
