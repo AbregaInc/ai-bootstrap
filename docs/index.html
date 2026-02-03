@@ -3,29 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Bootstrap - Set Up Your Mac for AI Coding in One Command</title>
-    <meta name="description" content="One command to install everything you need for AI-assisted coding: Homebrew, Git, Node.js, GitHub CLI, and AI coding tools like Codex and Claude Code.">
+    <title>AI Bootstrap — PRG.01</title>
+    <meta name="description" content="One command to install everything you need for AI-assisted coding: Homebrew, Git, Node.js, GitHub CLI, and AI coding tools.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #050508;
-            --bg: #0a0a0f;
-            --surface: #12121a;
-            --surface-hover: #1a1a25;
-            --border: #ffffff10;
-            --border-bright: #ffffff20;
-            --text: #f0f0f5;
-            --text-muted: #888899;
-            --cyan: #00f5ff;
-            --magenta: #ff00aa;
-            --lime: #b4ff39;
-            --orange: #ff6b35;
-            --gradient-1: linear-gradient(135deg, #00f5ff 0%, #ff00aa 50%, #b4ff39 100%);
-            --gradient-2: linear-gradient(90deg, #00f5ff, #ff00aa);
-            --glow-cyan: 0 0 30px #00f5ff40;
-            --glow-magenta: 0 0 30px #ff00aa40;
+            --paper: #F0F0EE;
+            --white: #FFFFFF;
+            --black: #1E1E1E;
+            --charcoal: #2A2A2A;
+            --orange: #F0723C;
+            --gray: #888888;
+            --gray-light: #CDBBB3;
+            --grid-light: rgba(0,0,0,0.06);
+            --grid-dark: rgba(240,114,60,0.15);
+            --unit: 8px;
         }
         
         * {
@@ -35,714 +29,736 @@
         }
         
         html {
-            scroll-behavior: smooth;
+            font-size: 16px;
         }
         
         body {
-            font-family: 'Outfit', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            min-height: 100vh;
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, Helvetica, Arial, sans-serif;
+            background: var(--paper);
+            color: var(--black);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
         
-        /* Animated background grid */
-        .bg-grid {
+        /* Grid overlay */
+        .grid-bg {
             position: fixed;
             inset: 0;
             background-image: 
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
+                linear-gradient(var(--grid-light) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-light) 1px, transparent 1px);
+            background-size: 24px 24px;
             pointer-events: none;
             z-index: 0;
         }
         
-        /* Floating orbs */
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 0;
-            animation: float 20s ease-in-out infinite;
+        /* Registration marks */
+        .reg-mark {
+            position: absolute;
+            color: var(--orange);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
         }
         
-        .orb-1 {
-            width: 600px;
-            height: 600px;
-            background: var(--cyan);
-            top: -200px;
-            right: -200px;
-            animation-delay: 0s;
+        .reg-mark::before {
+            content: '+';
+            margin-right: 4px;
         }
         
-        .orb-2 {
-            width: 500px;
-            height: 500px;
-            background: var(--magenta);
-            bottom: -150px;
-            left: -150px;
-            animation-delay: -10s;
-        }
-        
-        .orb-3 {
-            width: 300px;
-            height: 300px;
-            background: var(--lime);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.2;
-            animation-delay: -5s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -30px) scale(1.05); }
-            50% { transform: translate(-20px, 20px) scale(0.95); }
-            75% { transform: translate(20px, 10px) scale(1.02); }
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
+        /* Main container */
+        .page {
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 48px 96px;
         }
         
-        /* Header */
-        header {
-            text-align: center;
-            padding: 6rem 0 4rem;
-            position: relative;
+        /* Header bar */
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--black);
+            margin-bottom: 48px;
         }
         
-        .logo-container {
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .program-id {
+            background: var(--orange);
+            color: var(--white);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            padding: 6px 10px;
+            text-transform: uppercase;
+        }
+        
+        .header-title {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+        
+        .header-right {
+            text-align: right;
+        }
+        
+        .version-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+        
+        .date-tag {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+        
+        /* Hero section */
+        .hero {
+            margin-bottom: 72px;
+        }
+        
+        .hero-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .hero-label::before {
+            content: '';
             display: inline-block;
-            position: relative;
-            margin-bottom: 2rem;
+            width: 24px;
+            height: 2px;
+            background: var(--orange);
         }
         
-        .logo {
-            font-size: 5rem;
+        .hero-title {
+            font-size: clamp(48px, 10vw, 96px);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        
+        .hero-title span {
             display: block;
-            animation: pulse 3s ease-in-out infinite;
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px var(--cyan)); }
-            50% { transform: scale(1.05); filter: drop-shadow(0 0 40px var(--magenta)); }
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--gray);
+            max-width: 480px;
+            line-height: 1.6;
         }
         
-        .badge {
+        /* Command block */
+        .command-block {
+            background: var(--black);
+            padding: 32px;
+            margin-bottom: 48px;
+            position: relative;
+        }
+        
+        .command-block::before {
+            content: '+ EXEC';
             position: absolute;
             top: -10px;
-            right: -40px;
-            background: var(--gradient-2);
-            color: var(--bg);
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            animation: badge-glow 2s ease-in-out infinite alternate;
+            left: 24px;
+            background: var(--orange);
+            color: var(--white);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            padding: 4px 8px;
         }
         
-        @keyframes badge-glow {
-            from { box-shadow: 0 0 10px var(--cyan); }
-            to { box-shadow: 0 0 20px var(--magenta); }
-        }
-        
-        h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .tagline {
-            font-size: 1.35rem;
-            font-weight: 300;
-            color: var(--text-muted);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        /* Command Section */
-        .command-section {
-            background: var(--surface);
-            border: 1px solid var(--border-bright);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 3rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .command-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: var(--gradient-2);
-        }
-        
-        .command-section h2 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--cyan);
-            text-transform: uppercase;
+        .command-label {
+            font-size: 10px;
+            font-weight: 500;
             letter-spacing: 0.2em;
-            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 16px;
+        }
+        
+        .command-row {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .command-section h2::before {
-            content: '>';
-            color: var(--lime);
-        }
-        
-        .command-box {
-            background: var(--bg-deep);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.25rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .command-box:hover {
-            border-color: var(--cyan);
-            box-shadow: var(--glow-cyan);
+            gap: 16px;
         }
         
         .command-text {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--lime);
+            flex: 1;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            font-size: 14px;
+            color: var(--white);
+            background: transparent;
+            border: none;
             word-break: break-all;
         }
         
         .copy-btn {
-            background: var(--gradient-2);
-            color: var(--bg);
+            background: var(--white);
+            color: var(--black);
             border: none;
-            padding: 0.65rem 1.25rem;
-            border-radius: 8px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
+            padding: 12px 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .copy-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, transparent, white, transparent);
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-        }
-        
-        .copy-btn:hover::before {
-            transform: translateX(100%);
+            transition: background 0.15s, color 0.15s;
         }
         
         .copy-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px -10px var(--magenta);
+            background: var(--orange);
+            color: var(--white);
         }
         
         .copy-btn.copied {
-            background: var(--lime);
+            background: var(--orange);
+            color: var(--white);
         }
         
-        .source-links {
-            margin-top: 1.25rem;
-            text-align: center;
-            font-size: 0.85rem;
+        .command-meta {
+            display: flex;
+            gap: 24px;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
-        .source-links a {
-            color: var(--text-muted);
+        .command-meta a {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.15s;
         }
         
-        .source-links a:hover {
-            color: var(--cyan);
+        .command-meta a:hover {
+            color: var(--orange);
         }
         
-        /* Features Grid */
-        .features {
+        /* Modules grid */
+        .modules-section {
+            margin-bottom: 72px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .section-number {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--gray);
+        }
+        
+        .section-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--black);
+        }
+        
+        .modules-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin: 4rem 0;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1px;
+            background: var(--black);
+            border: 1px solid var(--black);
         }
         
-        @media (max-width: 768px) {
-            .features {
+        @media (max-width: 900px) {
+            .modules-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 540px) {
+            .modules-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
         
-        @media (max-width: 480px) {
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .feature {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.75rem;
-            transition: all 0.3s ease;
+        .module {
+            background: var(--white);
+            padding: 24px 20px;
             position: relative;
-            overflow: hidden;
         }
         
-        .feature::before {
-            content: '';
+        .module::before {
+            content: attr(data-id);
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: var(--gradient-1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            top: 8px;
+            right: 8px;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--gray-light);
         }
         
-        .feature:hover {
-            background: var(--surface-hover);
-            border-color: var(--border-bright);
-            transform: translateY(-4px);
-        }
-        
-        .feature:hover::before {
-            opacity: 1;
-        }
-        
-        .feature-icon {
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
+        .module-icon {
+            font-size: 24px;
+            margin-bottom: 16px;
             display: block;
         }
         
-        .feature h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.35rem;
+        .module-name {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 4px;
         }
         
-        .feature p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 300;
+        .module-desc {
+            font-size: 11px;
+            color: var(--gray);
+            letter-spacing: 0.01em;
         }
         
-        /* Steps Section */
-        .steps {
-            margin: 5rem 0;
+        /* Instructions */
+        .instructions-section {
+            margin-bottom: 72px;
         }
         
-        .steps > h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 2.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
         }
         
-        .steps > h2::before {
-            content: '';
-            display: inline-block;
-            width: 40px;
-            height: 3px;
-            background: var(--gradient-2);
-            border-radius: 2px;
+        @media (max-width: 768px) {
+            .instructions-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
         }
         
-        .step {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
+        .instruction {
             position: relative;
+            padding-left: 56px;
         }
         
-        .step:not(:last-child)::after {
-            content: '';
+        .instruction-number {
             position: absolute;
-            left: 19px;
-            top: 50px;
-            bottom: -30px;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--border-bright), transparent);
-        }
-        
-        .step-number {
+            left: 0;
+            top: 0;
             width: 40px;
             height: 40px;
-            background: var(--surface);
-            border: 2px solid var(--cyan);
-            border-radius: 12px;
+            border: 2px solid var(--black);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
             font-weight: 700;
-            font-size: 1rem;
-            color: var(--cyan);
-            flex-shrink: 0;
-            box-shadow: var(--glow-cyan);
         }
         
-        .step-content {
-            flex: 1;
-            padding-top: 0.25rem;
+        .instruction-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
         }
         
-        .step-content h3 {
-            font-size: 1.2rem;
+        .instruction-text {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        
+        .instruction-text strong {
+            color: var(--black);
             font-weight: 600;
-            margin-bottom: 0.5rem;
         }
         
-        .step-content p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-        
-        .step-content em {
-            color: var(--orange);
+        .instruction-text em {
             font-style: normal;
-            font-weight: 400;
+            color: var(--orange);
         }
         
         .substeps {
             list-style: none;
-            margin-top: 1rem;
-            padding: 1rem 1.25rem;
-            background: var(--bg-deep);
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            background: var(--white);
+            border: 1px solid var(--black);
+            padding: 16px 20px;
         }
         
         .substeps li {
-            color: var(--text-muted);
-            padding: 0.4rem 0;
-            padding-left: 1.75rem;
+            font-size: 12px;
+            color: var(--gray);
+            padding: 6px 0;
+            padding-left: 20px;
             position: relative;
-            font-size: 0.9rem;
+            border-bottom: 1px solid var(--grid-light);
+        }
+        
+        .substeps li:last-child {
+            border-bottom: none;
         }
         
         .substeps li::before {
-            content: "→";
+            content: '→';
             position: absolute;
             left: 0;
-            color: var(--lime);
-            font-family: 'JetBrains Mono', monospace;
+            color: var(--orange);
+            font-weight: 500;
         }
         
         .substeps li strong {
-            color: var(--text);
+            color: var(--black);
             font-weight: 600;
         }
         
-        /* Requirements */
-        .requirements {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .requirements h2 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 1.25rem;
-        }
-        
-        .requirements ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem 2rem;
-        }
-        
-        .requirements li {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        /* Requirements bar */
+        .requirements-bar {
+            background: var(--white);
+            border: 1px solid var(--black);
+            padding: 24px 32px;
+            margin-bottom: 48px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 48px;
+            flex-wrap: wrap;
         }
         
-        .requirements li::before {
-            content: "✓";
-            color: var(--lime);
-            font-weight: bold;
+        .requirements-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray);
         }
         
-        /* Support Section */
-        .support {
+        .requirements-list {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .requirement {
+            font-size: 12px;
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .requirement::before {
+            content: '✓';
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--orange);
+        }
+        
+        /* Support section */
+        .support-block {
+            background: var(--orange);
+            padding: 48px;
             position: relative;
-            background: var(--surface);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 4rem 0;
-            text-align: center;
-            overflow: hidden;
+            margin-bottom: 48px;
         }
         
-        .support::before {
+        .support-block::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: var(--gradient-1);
-            opacity: 0.05;
-        }
-        
-        .support::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 20px;
-            padding: 1px;
-            background: var(--gradient-1);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: xor;
-            -webkit-mask-composite: xor;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
             pointer-events: none;
         }
         
-        .support h2 {
-            font-size: 1.5rem;
+        .support-tag {
+            display: inline-block;
+            background: var(--white);
+            color: var(--black);
+            font-size: 9px;
             font-weight: 700;
-            margin-bottom: 1rem;
-            position: relative;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 6px 10px;
+            margin-bottom: 24px;
         }
         
-        .support > p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            max-width: 480px;
-            margin: 0 auto 2rem;
-            position: relative;
+        .support-title {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            margin-bottom: 12px;
+            text-transform: uppercase;
         }
         
-        .referral-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--gradient-1);
-            background-size: 200% 200%;
-            color: var(--bg);
-            padding: 1rem 2rem;
-            border-radius: 12px;
+        .support-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+            max-width: 520px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        
+        .support-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            position: relative;
-            animation: gradient-shift 3s ease infinite;
+            padding: 16px 32px;
+            transition: background 0.15s;
         }
         
-        @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .referral-btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 20px 40px -15px var(--magenta);
+        .support-btn:hover {
+            background: var(--charcoal);
         }
         
         /* Footer */
-        footer {
-            text-align: center;
-            padding: 4rem 0 3rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-top: 32px;
+            border-top: 1px solid var(--black);
         }
         
-        footer a {
-            color: var(--cyan);
-            text-decoration: none;
+        .footer-left {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
         }
         
-        footer a:hover {
-            text-decoration: underline;
+        .footer-right {
+            text-align: right;
         }
         
-        /* Scanline effect */
-        .scanlines {
+        .footer-id {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+        
+        .footer-meta {
+            font-size: 9px;
+            letter-spacing: 0.1em;
+            color: var(--gray-light);
+            margin-top: 4px;
+        }
+        
+        /* Corner marks */
+        .corner-mark {
             position: fixed;
-            inset: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(0, 0, 0, 0.03) 2px,
-                rgba(0, 0, 0, 0.03) 4px
-            );
-            pointer-events: none;
-            z-index: 9999;
+            font-size: 8px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--gray-light);
+            z-index: 100;
+        }
+        
+        .corner-mark.tl { top: 16px; left: 16px; }
+        .corner-mark.tr { top: 16px; right: 16px; }
+        .corner-mark.bl { bottom: 16px; left: 16px; }
+        .corner-mark.br { bottom: 16px; right: 16px; }
+        
+        .corner-mark::before {
+            content: '+';
+            margin-right: 6px;
+            color: var(--orange);
         }
     </style>
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="scanlines"></div>
+    <div class="grid-bg"></div>
     
-    <div class="container">
-        <header>
-            <div class="logo-container">
-                <span class="logo">⚡</span>
-                <span class="badge">v1.0</span>
+    <div class="corner-mark tl">REG.01</div>
+    <div class="corner-mark tr">REG.02</div>
+    <div class="corner-mark bl">REG.03</div>
+    <div class="corner-mark br">REG.04</div>
+    
+    <div class="page">
+        <header class="header-bar">
+            <div class="header-left">
+                <div class="program-id">PRG.01</div>
+                <div class="header-title">AI Development Environment Bootstrap</div>
             </div>
-            <h1>AI Bootstrap</h1>
-            <p class="tagline">Set up your Mac for AI-powered coding in one command</p>
+            <div class="header-right">
+                <div class="version-tag">Revision 1.0</div>
+                <div class="date-tag">2025.02.02</div>
+            </div>
         </header>
         
-        <section class="command-section">
-            <h2>Run this in Terminal</h2>
-            <div class="command-box">
+        <section class="hero">
+            <div class="hero-label">Autonomous Setup Protocol</div>
+            <h1 class="hero-title">
+                <span>AI</span>
+                <span>Bootstrap</span>
+            </h1>
+            <p class="hero-subtitle">One command to configure your Mac for AI-assisted development. Installs all required tooling with guided authentication.</p>
+        </section>
+        
+        <section class="command-block">
+            <div class="command-label">Terminal Execution Command</div>
+            <div class="command-row">
                 <code class="command-text">curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash</code>
                 <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
             </div>
-            <p class="source-links">
-                <a href="https://github.com/AbregaInc/ai-bootstrap">View on GitHub</a> · 
-                <a href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh">View Script Source</a>
-            </p>
-        </section>
-        
-        <section class="features">
-            <div class="feature">
-                <span class="feature-icon">🍺</span>
-                <h3>Homebrew</h3>
-                <p>Package manager for macOS</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">📦</span>
-                <h3>Git</h3>
-                <p>Version control</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">💚</span>
-                <h3>Node.js LTS</h3>
-                <p>Via NVM for easy versions</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">🐙</span>
-                <h3>GitHub CLI</h3>
-                <p>Authenticate and manage repos</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">🤖</span>
-                <h3>Codex CLI</h3>
-                <p>OpenAI's coding assistant</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">🧠</span>
-                <h3>Claude Code</h3>
-                <p>Anthropic's coding assistant</p>
+            <div class="command-meta">
+                <a href="https://github.com/AbregaInc/ai-bootstrap">View Repository</a>
+                <a href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh">View Source</a>
             </div>
         </section>
         
-        <section class="steps">
-            <h2>How it works</h2>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h3>Copy the command</h3>
-                    <p>Click the <strong>Copy</strong> button above. This copies the install command to your clipboard.</p>
+        <section class="modules-section">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <span class="section-title">Installed Modules</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="modules-grid">
+                <div class="module" data-id="M.01">
+                    <span class="module-icon">🍺</span>
+                    <div class="module-name">Homebrew</div>
+                    <div class="module-desc">Package manager</div>
+                </div>
+                <div class="module" data-id="M.02">
+                    <span class="module-icon">📦</span>
+                    <div class="module-name">Git</div>
+                    <div class="module-desc">Version control</div>
+                </div>
+                <div class="module" data-id="M.03">
+                    <span class="module-icon">💚</span>
+                    <div class="module-name">Node.js LTS</div>
+                    <div class="module-desc">Via NVM</div>
+                </div>
+                <div class="module" data-id="M.04">
+                    <span class="module-icon">🐙</span>
+                    <div class="module-name">GitHub CLI</div>
+                    <div class="module-desc">Repository access</div>
+                </div>
+                <div class="module" data-id="M.05">
+                    <span class="module-icon">🤖</span>
+                    <div class="module-name">Codex CLI</div>
+                    <div class="module-desc">OpenAI assistant</div>
+                </div>
+                <div class="module" data-id="M.06">
+                    <span class="module-icon">🧠</span>
+                    <div class="module-name">Claude Code</div>
+                    <div class="module-desc">Anthropic assistant</div>
                 </div>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h3>Open Terminal</h3>
-                    <p>Terminal is an app on your Mac that lets you type commands. Here's how to open it:</p>
+        </section>
+        
+        <section class="instructions-section">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <span class="section-title">Execution Protocol</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="instructions-grid">
+                <div class="instruction">
+                    <div class="instruction-number">01</div>
+                    <div class="instruction-title">Copy Command</div>
+                    <p class="instruction-text">Click the <strong>Copy</strong> button above. The installation command will be copied to your clipboard.</p>
+                </div>
+                <div class="instruction">
+                    <div class="instruction-number">02</div>
+                    <div class="instruction-title">Open Terminal</div>
+                    <p class="instruction-text">Terminal is the command-line interface on your Mac. To open it:</p>
                     <ul class="substeps">
-                        <li>Hold down the <strong>Command (⌘)</strong> key and press <strong>Spacebar</strong></li>
-                        <li>A search box called "Spotlight" will appear</li>
-                        <li>Type the word <strong>Terminal</strong></li>
-                        <li>Press <strong>Enter</strong> (or click on Terminal in the results)</li>
-                        <li>A window with a blinking cursor will open — that's Terminal!</li>
+                        <li>Hold <strong>Command (⌘)</strong> and press <strong>Spacebar</strong></li>
+                        <li>A search box called "Spotlight" appears</li>
+                        <li>Type <strong>Terminal</strong></li>
+                        <li>Press <strong>Enter</strong></li>
+                        <li>A window with a blinking cursor will open</li>
                     </ul>
                 </div>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h3>Paste and run</h3>
-                    <p>Click inside the Terminal window, then:</p>
+                <div class="instruction">
+                    <div class="instruction-number">03</div>
+                    <div class="instruction-title">Paste and Execute</div>
+                    <p class="instruction-text">Click inside the Terminal window, then:</p>
                     <ul class="substeps">
                         <li>Hold <strong>Command (⌘)</strong> and press <strong>V</strong> to paste</li>
-                        <li>You'll see the command appear in the Terminal</li>
-                        <li>Press <strong>Enter</strong> to run it</li>
+                        <li>The command will appear in the Terminal</li>
+                        <li>Press <strong>Enter</strong> to execute</li>
                     </ul>
                 </div>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <div class="step-content">
-                    <h3>Follow the prompts</h3>
-                    <p>The script will guide you through each step with clear explanations. It will ask your permission before installing anything. Just read what it says and type <strong>y</strong> (yes) or <strong>n</strong> (no) when asked.</p>
-                    <p style="margin-top: 0.75rem;"><em>Tip: When it asks for your password, type your Mac login password. You won't see any characters appear — that's normal! Just type it and press Enter.</em></p>
+                <div class="instruction">
+                    <div class="instruction-number">04</div>
+                    <div class="instruction-title">Follow Prompts</div>
+                    <p class="instruction-text">The script will guide you through each step. Type <strong>y</strong> (yes) or <strong>n</strong> (no) when prompted.</p>
+                    <p class="instruction-text"><em>Note: When entering your password, no characters will appear. This is normal security behavior.</em></p>
                 </div>
             </div>
         </section>
         
-        <section class="requirements">
-            <h2>Requirements</h2>
-            <ul>
-                <li>macOS (Apple Silicon or Intel)</li>
-                <li>Admin password for your Mac</li>
-                <li>Internet connection</li>
-            </ul>
+        <div class="requirements-bar">
+            <div class="requirements-label">System Requirements</div>
+            <div class="requirements-list">
+                <div class="requirement">macOS (Apple Silicon or Intel)</div>
+                <div class="requirement">Administrator access</div>
+                <div class="requirement">Internet connection</div>
+            </div>
+        </div>
+        
+        <section class="support-block">
+            <div class="support-tag">Support Development</div>
+            <h2 class="support-title">Get Claude</h2>
+            <p class="support-text">If you don't have a Claude account, sign up using our referral link. It's free to start and supports continued development of this tool.</p>
+            <a href="https://claude.ai/referral/3BTrBcpEyA" class="support-btn" target="_blank">Sign Up for Claude →</a>
         </section>
         
-        <section class="support">
-            <h2>🙏 Support This Project</h2>
-            <p>If you don't have a Claude account yet, you can sign up using our referral link. It's free to get started, and it helps support the ongoing development of this tool.</p>
-            <a href="https://claude.ai/referral/3BTrBcpEyA" class="referral-btn" target="_blank">Sign up for Claude →</a>
-        </section>
-        
-        <footer>
-            <p>MIT License</p>
+        <footer class="footer">
+            <div class="footer-left">MIT License — Open Source</div>
+            <div class="footer-right">
+                <div class="footer-id">ABREGA INC.</div>
+                <div class="footer-meta">AI-BOOTSTRAP / PRG.01-R1</div>
+            </div>
         </footer>
     </div>
     
@@ -750,7 +766,7 @@
         function copyCommand(btn) {
             const command = 'curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash';
             navigator.clipboard.writeText(command).then(() => {
-                btn.textContent = 'Copied!';
+                btn.textContent = 'Copied';
                 btn.classList.add('copied');
                 setTimeout(() => {
                     btn.textContent = 'Copy';
