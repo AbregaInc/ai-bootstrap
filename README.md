@@ -22,9 +22,9 @@ For the step-by-step guide series (terminal path vs UI app path):
 
 **[abregainc.github.io/ai-bootstrap/guides/](https://abregainc.github.io/ai-bootstrap/guides/)**
 
-If you prefer not to use the terminal, use the no-CLI page:
+If you prefer not to use the terminal, use the UI Path page:
 
-**[abregainc.github.io/ai-bootstrap/no-cli.html](https://abregainc.github.io/ai-bootstrap/no-cli.html)**
+**[abregainc.github.io/ai-bootstrap/guides/ui/](https://abregainc.github.io/ai-bootstrap/guides/ui/)**
 
 Or run directly:
 

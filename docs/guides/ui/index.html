@@ -3,15 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting - UI Path</title>
-    <meta http-equiv="refresh" content="0; url=../index.html#ui-path">
-    <link rel="canonical" href="../index.html#ui-path">
+    <title>AI Bootstrap Guides - UI Path</title>
+    <meta name="description" content="UI-first setup path with desktop apps and editor extensions for AI Bootstrap.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../guides.css">
 </head>
 <body>
-    <p>Redirecting to the UI path in Guided Setup...</p>
-    <p><a href="../index.html#ui-path">Continue to UI path</a></p>
-    <script>
-        window.location.replace('../index.html#ui-path');
-    </script>
+    <div class="grid-bg"></div>
+
+    <main class="page">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-id">PRG.01</div>
+                <div class="brand-title">UI Path</div>
+            </div>
+            <nav class="topnav" aria-label="Guide navigation">
+                <a href="../../index.html">Home</a>
+                <a href="../index.html">Guided Setup</a>
+                <a href="../terminal/">Terminal Path</a>
+                <a class="active" href="./">UI Path</a>
+                <a href="./opencode.html">OpenCode Branch</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-kicker">Path B</div>
+            <h1>UI Path</h1>
+            <p>This page now includes the full no-CLI catalog. Start with GitHub account + GitHub Desktop, then choose your desktop app and optional editor extensions.</p>
+        </section>
+
+        <div class="section-header">
+            <span class="section-num">00</span>
+            <span class="section-title">Start First</span>
+            <div class="section-line"></div>
+        </div>
+
+        <section class="card-grid">
+            <article class="card">
+                <div class="eyebrow">Required Onboarding</div>
+                <h3>GitHub Account + GitHub Desktop</h3>
+                <p>Create and verify your GitHub account, then sign in with GitHub Desktop before selecting AI tools.</p>
+                <div class="badges">
+                    <span class="badge required">Required</span>
+                    <span class="badge recommended">Recommended</span>
+                </div>
+                <div class="actions">
+                    <a class="primary" href="../index.html#step-0">Complete Step 0</a>
+                    <a href="https://desktop.github.com/download/" target="_blank" rel="noopener">Download GitHub Desktop</a>
+                    <a href="https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop" target="_blank" rel="noopener">Auth Guide</a>
+                </div>
+            </article>
+        </section>
+
+        <div class="section-header">
+            <span class="section-num">01</span>
+            <span class="section-title">Desktop Apps</span>
+            <div class="section-line"></div>
+        </div>
+
+        <section class="card-grid three">
+            <article class="card">
+                <div class="eyebrow">Desktop App</div>
+                <h3>OpenAI Codex App</h3>
+                <p>Best default standalone option for non-terminal users.</p>
+                <div class="badges"><span class="badge recommended">Recommended</span></div>
+                <div class="actions"><a class="primary" href="https://openai.com/codex/" target="_blank" rel="noopener">Download</a></div>
+            </article>
+
+            <article class="card">
+                <div class="eyebrow">Desktop App</div>
+                <h3>Claude Desktop</h3>
+                <p>Strong standalone alternative for Anthropic-centric workflows.</p>
+                <div class="badges"><span class="badge recommended">Recommended</span></div>
+                <div class="actions"><a class="primary" href="https://claude.com/download" target="_blank" rel="noopener">Download</a></div>
+            </article>
+
+            <article class="card">
+                <div class="eyebrow">Desktop App</div>
+                <h3>Google Antigravity</h3>
+                <p>Google desktop coding option with a free starter quota/credits tier in preview.</p>
+                <div class="badges"><span class="badge optional">Optional</span></div>
+                <div class="actions">
+                    <a class="primary" href="https://antigravity.google/download" target="_blank" rel="noopener">Download</a>
+                    <a href="https://antigravity.google/docs" target="_blank" rel="noopener">Docs</a>
+                </div>
+            </article>
+        </section>
+
+        <div class="section-header">
+            <span class="section-num">02</span>
+            <span class="section-title">Editor Extensions</span>
+            <div class="section-line"></div>
+        </div>
+
+        <section class="card-grid three">
+            <article class="card">
+                <div class="eyebrow">VS Code Extension</div>
+                <h3>Claude Code</h3>
+                <p>Claude workflow directly in VS Code.</p>
+                <div class="badges"><span class="badge optional">Optional</span></div>
+                <div class="actions">
+                    <a class="primary" href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code" target="_blank" rel="noopener">Install</a>
+                    <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">Get VS Code</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="eyebrow">VS Code Extension</div>
+                <h3>Kilo Code</h3>
+                <p>Extension route with broad model support.</p>
+                <div class="badges"><span class="badge optional">Optional</span></div>
+                <div class="actions">
+                    <a class="primary" href="https://marketplace.visualstudio.com/items?itemName=kilocode.kilo-code" target="_blank" rel="noopener">Install</a>
+                    <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">Get VS Code</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="eyebrow">VS Code Extension</div>
+                <h3>GitHub Copilot</h3>
+                <p>Copilot chat and completions in VS Code.</p>
+                <div class="badges"><span class="badge optional">Optional</span></div>
+                <div class="actions">
+                    <a class="primary" href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot" target="_blank" rel="noopener">Install</a>
+                    <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">Get VS Code</a>
+                </div>
+            </article>
+        </section>
+
+        <div class="section-header">
+            <span class="section-num">03</span>
+            <span class="section-title">Fan-Out Branch</span>
+            <div class="section-line"></div>
+        </div>
+
+        <section class="card-grid">
+            <article class="card">
+                <div class="eyebrow">Branch Guide</div>
+                <h3>OpenCode Route</h3>
+                <p>If you choose OpenCode, follow the dedicated branch for curated repos and setup guidance.</p>
+                <div class="badges"><span class="badge optional">Optional</span></div>
+                <div class="actions">
+                    <a class="primary" href="./opencode.html">Open OpenCode Branch</a>
+                </div>
+            </article>
+        </section>
+
+        <p class="note">Catalog links were checked on February 3, 2026. Provider tiers and pricing can change; verify current terms on product pages.</p>
+
+        <footer class="footer">
+            <div class="footmeta">ABREGA INC. - AI-BOOTSTRAP GUIDE SERIES</div>
+            <nav class="footnav" aria-label="Footer navigation">
+                <a href="../../index.html">Home</a>
+                <a href="../index.html">Guided Setup</a>
+                <a href="../terminal/">Terminal Path</a>
+                <a class="active" href="./">UI Path</a>
+                <a href="./opencode.html">OpenCode Branch</a>
+            </nav>
+        </footer>
+    </main>
 </body>
 </html>

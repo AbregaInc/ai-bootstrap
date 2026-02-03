@@ -3,15 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting - Terminal Path</title>
-    <meta http-equiv="refresh" content="0; url=../index.html#terminal-path">
-    <link rel="canonical" href="../index.html#terminal-path">
+    <title>AI Bootstrap Guides - Terminal Path</title>
+    <meta name="description" content="Terminal-first path page for AI Bootstrap setup.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../guides.css">
 </head>
 <body>
-    <p>Redirecting to the terminal path in Guided Setup...</p>
-    <p><a href="../index.html#terminal-path">Continue to terminal path</a></p>
+    <div class="grid-bg"></div>
+
+    <main class="page">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-id">PRG.01</div>
+                <div class="brand-title">Terminal Path</div>
+            </div>
+            <nav class="topnav" aria-label="Guide navigation">
+                <a href="../../index.html">Home</a>
+                <a href="../index.html">Guided Setup</a>
+                <a class="active" href="./">Terminal Path</a>
+                <a href="../ui/">UI Path</a>
+                <a href="../ui/opencode.html">OpenCode Branch</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-kicker">Path A</div>
+            <h1>Terminal Path</h1>
+            <p>Use this page for command-line setup, then run the bootstrap command and validate one real workflow.</p>
+        </section>
+
+        <div class="section-header">
+            <span class="section-num">02A</span>
+            <span class="section-title">Run Bootstrap Script</span>
+            <div class="section-line"></div>
+        </div>
+
+        <section class="card-grid">
+            <article class="card">
+                <div class="eyebrow">Required</div>
+                <h3>Install Baseline Tooling</h3>
+                <p>Install Homebrew, Git, Node.js, GitHub CLI, Ghostty, and CLI coding tools in one flow.</p>
+                <div class="badges">
+                    <span class="badge required">Required</span>
+                </div>
+                <div class="command-panel">
+                    <div class="command-label">Terminal Command</div>
+                    <div class="command-row">
+                        <code class="command-code" id="bootstrap-command">curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash</code>
+                        <button class="command-copy" type="button" onclick="copyBootstrapCommand(this)">Copy</button>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="primary" href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh" target="_blank" rel="noopener">View Script Source</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="eyebrow">Validation</div>
+                <h3>Complete One Real Cycle</h3>
+                <p>Pick one CLI tool and prove the workflow works end-to-end in an actual repository.</p>
+                <div class="badges">
+                    <span class="badge recommended">Codex CLI Default</span>
+                    <span class="badge optional">Claude Code / OpenCode CLI</span>
+                </div>
+                <ul class="checklist">
+                    <li>Clone or open a real repository.</li>
+                    <li>Run one AI-assisted edit and tests.</li>
+                    <li>Commit and push the change.</li>
+                </ul>
+                <div class="actions">
+                    <a class="primary" href="../index.html">Back To Guided Setup</a>
+                    <a href="../ui/opencode.html">Open OpenCode Branch</a>
+                </div>
+            </article>
+        </section>
+
+        <footer class="footer">
+            <div class="footmeta">ABREGA INC. - AI-BOOTSTRAP GUIDE SERIES</div>
+            <nav class="footnav" aria-label="Footer navigation">
+                <a href="../../index.html">Home</a>
+                <a href="../index.html">Guided Setup</a>
+                <a class="active" href="./">Terminal Path</a>
+                <a href="../ui/">UI Path</a>
+                <a href="../ui/opencode.html">OpenCode Branch</a>
+            </nav>
+        </footer>
+    </main>
+
     <script>
-        window.location.replace('../index.html#terminal-path');
+        function copyBootstrapCommand(btn) {
+            const command = 'curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash';
+            navigator.clipboard.writeText(command).then(() => {
+                btn.textContent = 'Copied';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>

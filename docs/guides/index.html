@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Bootstrap Guides - Guided Setup</title>
-    <meta name="description" content="Single guided setup flow for AI Bootstrap with one required step and two clear path options.">
+    <meta name="description" content="Main guide entrance point for AI Bootstrap with separate Terminal Path and UI Path pages.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -22,17 +22,15 @@
             <nav class="topnav" aria-label="Guide navigation">
                 <a href="../index.html">Home</a>
                 <a class="active" href="./index.html">Guided Setup</a>
-                <a href="#terminal-path">Terminal Path</a>
-                <a href="#ui-path">UI Path</a>
-                <a href="#step-0">Step 0</a>
-                <a href="../no-cli.html">No-CLI Catalog</a>
+                <a href="./terminal/">Terminal Path</a>
+                <a href="./ui/">UI Path</a>
             </nav>
         </header>
 
         <section class="hero">
-            <div class="hero-kicker">Single Flow</div>
+            <div class="hero-kicker">Entrance Point</div>
             <h1>Setup Guide</h1>
-            <p>Everything starts here. Complete Step 0 once, pick one path (Terminal or UI), and finish that path end-to-end.</p>
+            <p>Complete Step 0 first, then pick one path page and finish it end-to-end.</p>
         </section>
 
         <div id="step-0" class="section-header">
@@ -45,7 +43,7 @@
             <article class="card">
                 <div class="eyebrow">Step 0</div>
                 <h2>Create Your GitHub Account</h2>
-                <p>This is required for every route in this project. Do this once, then continue to your chosen setup path.</p>
+                <p>This is required for every route. Do this once, then continue to path selection.</p>
                 <div class="badges">
                     <span class="badge required">Required</span>
                     <span class="badge recommended">Recommended: Enable 2FA</span>
@@ -53,7 +51,7 @@
                 <ul class="checklist">
                     <li>Create account and verify email.</li>
                     <li>Enable two-factor authentication.</li>
-                    <li>Keep this same account for GitHub Desktop and CLI auth.</li>
+                    <li>Use the same account across GitHub Desktop and CLI auth.</li>
                 </ul>
                 <div class="actions">
                     <a class="primary" href="https://github.com/signup" target="_blank" rel="noopener">Create GitHub Account</a>
@@ -64,106 +62,50 @@
 
         <div id="choose-path" class="section-header">
             <span class="section-num">01</span>
-            <span class="section-title">Choose One Path</span>
+            <span class="section-title">Choose One Path Page</span>
             <div class="section-line"></div>
         </div>
 
         <section class="card-grid">
             <article class="card">
                 <div class="eyebrow">Path A</div>
-                <h2>Terminal Workflow</h2>
-                <p>Pick this if you want command-line setup and agent-driven workflows in terminal.</p>
+                <h2>Terminal Path Page</h2>
+                <p>Use this if you want terminal-first setup, bootstrap script install, and CLI workflows.</p>
                 <div class="badges">
                     <span class="badge recommended">Recommended for CLI users</span>
                 </div>
                 <div class="actions">
-                    <a class="primary" href="#terminal-path">Continue Terminal Path</a>
-                    <a href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh" target="_blank" rel="noopener">View Script Source</a>
+                    <a class="primary" href="./terminal/">Open Terminal Path</a>
                 </div>
             </article>
 
             <article class="card">
                 <div class="eyebrow">Path B</div>
-                <h2>UI Apps Workflow</h2>
-                <p>Pick this if you prefer GitHub Desktop and app-based setup without terminal-first flow.</p>
+                <h2>UI Path Page</h2>
+                <p>Use this if you want app-first setup with GitHub Desktop and desktop/editor tooling.</p>
                 <div class="badges">
                     <span class="badge recommended">Recommended for UI users</span>
                 </div>
                 <div class="actions">
-                    <a class="primary" href="#ui-path">Continue UI Path</a>
-                    <a href="../no-cli.html">Open No-CLI Catalog</a>
+                    <a class="primary" href="./ui/">Open UI Path</a>
+                    <a href="./ui/">Open UI Tools</a>
                 </div>
             </article>
         </section>
 
-        <p class="note">Do not run both paths during onboarding. Choose one primary path, finish it, and optionally add tools from other paths later.</p>
-
-        <div class="section-header">
-            <span class="section-num">02</span>
-            <span class="section-title">Complete Your Chosen Path</span>
-            <div class="section-line"></div>
-        </div>
-
-        <section class="card-grid">
-            <article id="terminal-path" class="card">
-                <div class="eyebrow">02A - Terminal Path</div>
-                <h3>Run Bootstrap + Pick Main CLI</h3>
-                <p>Install baseline tooling, then choose one main CLI tool first.</p>
-                <div class="badges">
-                    <span class="badge required">Required (Terminal Path)</span>
-                    <span class="badge recommended">Codex CLI Default</span>
-                    <span class="badge optional">Claude Code / OpenCode CLI</span>
-                </div>
-                <div class="command-panel">
-                    <div class="command-label">Terminal Command</div>
-                    <div class="command-row">
-                        <code class="command-code" id="bootstrap-command">curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash</code>
-                        <button class="command-copy" type="button" onclick="copyBootstrapCommand(this)">Copy</button>
-                    </div>
-                </div>
-                <ul class="checklist">
-                    <li>Open a real repository.</li>
-                    <li>Run one edit/test/commit cycle.</li>
-                    <li>Confirm auth and model access are working.</li>
-                </ul>
-                <div class="actions">
-                    <a class="primary" href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh" target="_blank" rel="noopener">View Script Source</a>
-                    <a href="#optional-branches">Optional Branches</a>
-                </div>
-            </article>
-
-            <article id="ui-path" class="card">
-                <div class="eyebrow">02B - UI Apps Path</div>
-                <h3>Install Desktop + Pick Main UI Tool</h3>
-                <p>Set up GitHub Desktop first, then choose one primary UI tool.</p>
-                <div class="badges">
-                    <span class="badge required">Required (UI Path)</span>
-                    <span class="badge recommended">Codex App / Claude Desktop</span>
-                    <span class="badge optional">Antigravity / OpenCode Branch</span>
-                </div>
-                <ul class="checklist">
-                    <li>Clone a test repository with GitHub Desktop.</li>
-                    <li>Run one small AI-assisted change.</li>
-                    <li>Commit and push through GitHub Desktop.</li>
-                </ul>
-                <div class="actions">
-                    <a class="primary" href="../no-cli.html">Open No-CLI Catalog</a>
-                    <a href="./ui/opencode.html">Open OpenCode Branch</a>
-                </div>
-            </article>
-        </section>
+        <p class="note">Choose one path page and complete it first. Add optional branches after your baseline workflow is stable.</p>
 
         <div id="optional-branches" class="section-header">
-            <span class="section-num">03</span>
-            <span class="section-title">Optional Branches And Finish</span>
+            <span class="section-num">02</span>
+            <span class="section-title">Optional Branch</span>
             <div class="section-line"></div>
         </div>
 
         <section class="card-grid">
             <article class="card">
                 <div class="eyebrow">Optional</div>
-                <h3>OpenCode Plugin Branch</h3>
-                <p>If you need deeper customization, use the OpenCode branch for curated repos like oh-my-opencode and dynamic-context-pruning.</p>
+                <h3>OpenCode Branch</h3>
+                <p>Use the OpenCode branch if you want curated OpenCode repos and deeper customization.</p>
                 <div class="badges">
                     <span class="badge optional">Optional</span>
                 </div>
@@ -175,13 +117,13 @@
             <article class="card">
                 <div class="eyebrow">Done Criteria</div>
                 <h3>Setup Complete</h3>
-                <p>You are done when GitHub auth works, one path is complete, and one real repo change is successfully committed and pushed.</p>
+                <p>You are done when Step 0 is complete, one path page is complete, and one real repo change is committed and pushed.</p>
                 <div class="badges">
                     <span class="badge required">Finish Check</span>
                 </div>
                 <ul class="checklist">
-                    <li>Account verified and authenticated.</li>
-                    <li>Primary path completed end-to-end.</li>
+                    <li>GitHub auth verified.</li>
+                    <li>Chosen path completed end-to-end.</li>
                     <li>First repo edit/test/commit/push completed.</li>
                 </ul>
                 <div class="actions">
@@ -195,25 +137,10 @@
             <nav class="footnav" aria-label="Footer navigation">
                 <a href="../index.html">Home</a>
                 <a class="active" href="./index.html">Guided Setup</a>
-                <a href="#terminal-path">Terminal Path</a>
-                <a href="#ui-path">UI Path</a>
-                <a href="#step-0">Step 0</a>
+                <a href="./terminal/">Terminal Path</a>
+                <a href="./ui/">UI Path</a>
             </nav>
         </footer>
     </main>
-
-    <script>
-        function copyBootstrapCommand(btn) {
-            const command = 'curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash';
-            navigator.clipboard.writeText(command).then(() => {
-                btn.textContent = 'Copied';
-                btn.classList.add('copied');
-                setTimeout(() => {
-                    btn.textContent = 'Copy';
-                    btn.classList.remove('copied');
-                }, 2000);
-            });
-        }
-    </script>
 </body>
 </html>
