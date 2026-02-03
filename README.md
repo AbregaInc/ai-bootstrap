@@ -18,6 +18,10 @@ A friendly script that helps beginners set up their Mac for AI-assisted coding.
 
 **Visit [abregainc.github.io/ai-bootstrap](https://abregainc.github.io/ai-bootstrap)** for the landing page.
 
+If you prefer not to use the terminal, use the no-CLI page:
+
+**[abregainc.github.io/ai-bootstrap/no-cli.html](https://abregainc.github.io/ai-bootstrap/no-cli.html)**
+
 Or run directly:
 
 ```bash
