@@ -349,6 +349,23 @@
             background: var(--orange);
             border-color: var(--orange);
         }
+
+        .noncli-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .noncli-btn.secondary {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .noncli-btn.secondary:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
         
         /* Modules grid */
         .modules-section {
@@ -755,9 +772,12 @@
             <div>
                 <div class="noncli-kicker">No CLI Preference</div>
                 <h2 class="noncli-title">Use Apps and Extensions Instead</h2>
-                <p class="noncli-text">Prefer clicking through a GUI instead of running terminal commands? We built a dedicated page with logo cards and direct download links for GitHub Desktop, Codex macOS app, Claude Desktop, Claude Code for VS Code, Kilo Code extension, and GitHub Copilot.</p>
+                <p class="noncli-text">Prefer clicking through a GUI instead of running terminal commands? We built a dedicated page with logo cards and direct download links for GitHub Desktop, Codex macOS app, Claude Desktop, Claude Code for VS Code, Kilo Code extension, and GitHub Copilot. Want a step-by-step flow? Start in our setup guide hub.</p>
             </div>
-            <a class="noncli-btn" href="./no-cli.html">Open No-CLI Guide</a>
+            <div class="noncli-actions">
+                <a class="noncli-btn" href="./guides/">Open Setup Guides</a>
+                <a class="noncli-btn secondary" href="./no-cli.html">Open No-CLI Catalog</a>
+            </div>
         </section>
         
         <section class="modules-section">

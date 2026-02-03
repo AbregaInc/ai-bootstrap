@@ -110,6 +110,24 @@
             color: var(--white);
         }
 
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .back-link.secondary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .back-link.secondary:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: var(--white);
+        }
+
         .hero {
             margin-bottom: 38px;
         }
@@ -281,7 +299,10 @@
                 <div class="program-id">PRG.01</div>
                 <div class="title-chip">No-CLI AI Tool Guide</div>
             </div>
-            <a href="./" class="back-link">Back to Bootstrap</a>
+            <div class="header-actions">
+                <a href="./guides/" class="back-link secondary">Open Setup Guides</a>
+                <a href="./" class="back-link">Back to Bootstrap</a>
+            </div>
         </header>
 
         <section class="hero">
