@@ -334,6 +334,15 @@ install_ai_tools() {
         print_info "Run 'claude' to start using it."
     fi
     
+    # Kilo Code
+    echo ""
+    if ask_yes_no "Install Kilo Code? Open source, supports 500+ models"; then
+        print_step "Installing Kilo Code..."
+        npm install -g @kilocode/cli
+        print_success "Kilo Code installed!"
+        print_info "Run 'kilocode' to start. Supports 500+ AI models."
+    fi
+    
     press_enter
 }
 
