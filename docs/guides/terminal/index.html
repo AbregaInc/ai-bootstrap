@@ -57,12 +57,20 @@
             <article class="card">
                 <div class="eyebrow">Step 2</div>
                 <h3>Run Bootstrap Script</h3>
-                <p>Install Homebrew, Git, Node.js, GitHub CLI, Ghostty, and CLI tools through one guided flow.</p>
+                <p>Install Homebrew, Git, Node.js, GitHub CLI, Ghostty, and CLI tools through one guided flow directly from this page.</p>
                 <div class="badges">
                     <span class="badge required">Required</span>
                 </div>
+                <div class="command-panel">
+                    <div class="command-label">Terminal Command</div>
+                    <div class="command-row">
+                        <code class="command-code" id="bootstrap-command">curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash</code>
+                        <button class="command-copy" type="button" onclick="copyBootstrapCommand(this)">Copy</button>
+                    </div>
+                </div>
                 <div class="actions">
-                    <a class="primary" href="../../index.html">Open Bootstrap Home</a>
+                    <a class="primary" href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh" target="_blank" rel="noopener">View Script Source</a>
+                    <a href="../../index.html">Open Landing Page</a>
                 </div>
             </article>
         </section>
@@ -118,5 +126,18 @@
             </nav>
         </footer>
     </main>
+    <script>
+        function copyBootstrapCommand(btn) {
+            const command = 'curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash';
+            navigator.clipboard.writeText(command).then(() => {
+                btn.textContent = 'Copied';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>

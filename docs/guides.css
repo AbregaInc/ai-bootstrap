@@ -238,6 +238,67 @@ body {
     font-size: 15px;
 }
 
+.command-panel {
+    border: 1px solid var(--black);
+    background: #faf9f7;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.command-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-light);
+}
+
+.command-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.command-code {
+    flex: 1;
+    min-width: 260px;
+    background: var(--black);
+    color: var(--white);
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 10px 11px;
+    border: 1px solid var(--black);
+    word-break: break-all;
+}
+
+.command-copy {
+    border: 1px solid var(--black);
+    background: var(--white);
+    color: var(--black);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: background 0.14s, color 0.14s;
+}
+
+.command-copy:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.command-copy.copied {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--white);
+}
+
 .badges {
     display: flex;
     flex-wrap: wrap;
