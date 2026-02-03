@@ -179,6 +179,41 @@
             font-size: 0.95rem;
         }
         
+        .substeps {
+            list-style: none;
+            margin-top: 0.75rem;
+            padding-left: 0;
+        }
+        
+        .substeps li {
+            color: var(--text-muted);
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .substeps li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .source-links {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .source-links a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .source-links a:hover {
+            text-decoration: underline;
+        }
+        
         .requirements {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -237,6 +272,10 @@
                 <code class="command-text">curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash</code>
                 <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
             </div>
+            <p class="source-links">
+                <a href="https://github.com/AbregaInc/ai-bootstrap">View on GitHub</a> · 
+                <a href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh">View Script Source</a>
+            </p>
         </section>
         
         <section class="features">
@@ -278,28 +317,41 @@
                 <div class="step-number">1</div>
                 <div class="step-content">
                     <h3>Copy the command</h3>
-                    <p>Click the copy button above to copy the install command</p>
+                    <p>Click the <strong>Copy</strong> button above. This copies the install command to your clipboard.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-content">
                     <h3>Open Terminal</h3>
-                    <p>Press Cmd+Space, type "Terminal", press Enter</p>
+                    <p>Terminal is an app on your Mac that lets you type commands. Here's how to open it:</p>
+                    <ul class="substeps">
+                        <li>Hold down the <strong>Command (⌘)</strong> key and press <strong>Spacebar</strong></li>
+                        <li>A search box called "Spotlight" will appear</li>
+                        <li>Type the word <strong>Terminal</strong></li>
+                        <li>Press <strong>Enter</strong> (or click on Terminal in the results)</li>
+                        <li>A window with a blinking cursor will open — that's Terminal!</li>
+                    </ul>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
                     <h3>Paste and run</h3>
-                    <p>Paste the command (Cmd+V) and press Enter</p>
+                    <p>Click inside the Terminal window, then:</p>
+                    <ul class="substeps">
+                        <li>Hold <strong>Command (⌘)</strong> and press <strong>V</strong> to paste</li>
+                        <li>You'll see the command appear in the Terminal</li>
+                        <li>Press <strong>Enter</strong> to run it</li>
+                    </ul>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">4</div>
                 <div class="step-content">
                     <h3>Follow the prompts</h3>
-                    <p>The script explains each step and asks before installing</p>
+                    <p>The script will guide you through each step with clear explanations. It will ask your permission before installing anything. Just read what it says and type <strong>y</strong> (yes) or <strong>n</strong> (no) when asked.</p>
+                    <p style="margin-top: 0.5rem;"><em>Tip: When it asks for your password, type your Mac login password. You won't see any characters appear — that's normal! Just type it and press Enter.</em></p>
                 </div>
             </div>
         </section>
@@ -314,10 +366,7 @@
         </section>
         
         <footer>
-            <p>
-                <a href="https://github.com/AbregaInc/ai-bootstrap">View on GitHub</a> · 
-                <a href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh">View Script Source</a>
-            </p>
+            <p>MIT License</p>
         </footer>
     </div>
     
