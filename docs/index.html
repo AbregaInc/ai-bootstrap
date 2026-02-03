@@ -5,16 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Bootstrap - Set Up Your Mac for AI Coding in One Command</title>
     <meta name="description" content="One command to install everything you need for AI-assisted coding: Homebrew, Git, Node.js, GitHub CLI, and AI coding tools like Codex and Claude Code.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0d1117;
-            --surface: #161b22;
-            --border: #30363d;
-            --text: #e6edf3;
-            --text-muted: #8b949e;
-            --accent: #58a6ff;
-            --green: #3fb950;
-            --purple: #a371f7;
+            --bg-deep: #050508;
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --surface-hover: #1a1a25;
+            --border: #ffffff10;
+            --border-bright: #ffffff20;
+            --text: #f0f0f5;
+            --text-muted: #888899;
+            --cyan: #00f5ff;
+            --magenta: #ff00aa;
+            --lime: #b4ff39;
+            --orange: #ff6b35;
+            --gradient-1: linear-gradient(135deg, #00f5ff 0%, #ff00aa 50%, #b4ff39 100%);
+            --gradient-2: linear-gradient(90deg, #00f5ff, #ff00aa);
+            --glow-cyan: 0 0 30px #00f5ff40;
+            --glow-magenta: 0 0 30px #ff00aa40;
         }
         
         * {
@@ -23,155 +34,402 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-family: 'Outfit', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animated background grid */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Floating orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--cyan);
+            top: -200px;
+            right: -200px;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--magenta);
+            bottom: -150px;
+            left: -150px;
+            animation-delay: -10s;
+        }
+        
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--lime);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.2;
+            animation-delay: -5s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 10px) scale(1.02); }
         }
         
         .container {
-            max-width: 960px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
+            position: relative;
+            z-index: 1;
         }
         
+        /* Header */
         header {
             text-align: center;
-            padding: 4rem 0 3rem;
+            padding: 6rem 0 4rem;
+            position: relative;
+        }
+        
+        .logo-container {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 2rem;
         }
         
         .logo {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            font-size: 5rem;
+            display: block;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px var(--cyan)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 40px var(--magenta)); }
+        }
+        
+        .badge {
+            position: absolute;
+            top: -10px;
+            right: -40px;
+            background: var(--gradient-2);
+            color: var(--bg);
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            animation: badge-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes badge-glow {
+            from { box-shadow: 0 0 10px var(--cyan); }
+            to { box-shadow: 0 0 20px var(--magenta); }
         }
         
         h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .tagline {
+            font-size: 1.35rem;
+            font-weight: 300;
             color: var(--text-muted);
-            font-size: 1.25rem;
+            max-width: 500px;
+            margin: 0 auto;
         }
         
+        /* Command Section */
         .command-section {
             background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
+            border: 1px solid var(--border-bright);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .command-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-2);
         }
         
         .command-section h2 {
-            font-size: 1rem;
-            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--cyan);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .command-section h2::before {
+            content: '>';
+            color: var(--lime);
         }
         
         .command-box {
-            background: var(--bg);
+            background: var(--bg-deep);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .command-box:hover {
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
         }
         
         .command-text {
-            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
-            font-size: 0.95rem;
-            color: var(--green);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--lime);
             word-break: break-all;
         }
         
         .copy-btn {
-            background: var(--accent);
+            background: var(--gradient-2);
             color: var(--bg);
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
             font-weight: 600;
+            font-size: 0.9rem;
             cursor: pointer;
             white-space: nowrap;
-            transition: opacity 0.2s;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .copy-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, white, transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .copy-btn:hover::before {
+            transform: translateX(100%);
         }
         
         .copy-btn:hover {
-            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px var(--magenta);
         }
         
         .copy-btn.copied {
-            background: var(--green);
+            background: var(--lime);
         }
         
+        .source-links {
+            margin-top: 1.25rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        
+        .source-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .source-links a:hover {
+            color: var(--cyan);
+        }
+        
+        /* Features Grid */
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin: 4rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
         }
         
         .feature {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feature:hover {
+            background: var(--surface-hover);
+            border-color: var(--border-bright);
+            transform: translateY(-4px);
+        }
+        
+        .feature:hover::before {
+            opacity: 1;
         }
         
         .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            display: block;
         }
         
         .feature h3 {
             font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
         }
         
         .feature p {
             color: var(--text-muted);
             font-size: 0.9rem;
+            font-weight: 300;
         }
         
+        /* Steps Section */
         .steps {
-            margin: 3rem 0;
+            margin: 5rem 0;
         }
         
-        .steps h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+        .steps > h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .steps > h2::before {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-2);
+            border-radius: 2px;
         }
         
         .step {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 50px;
+            bottom: -30px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--border-bright), transparent);
         }
         
         .step-number {
-            background: var(--purple);
-            color: white;
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background: var(--surface);
+            border: 2px solid var(--cyan);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--cyan);
             flex-shrink: 0;
+            box-shadow: var(--glow-cyan);
+        }
+        
+        .step-content {
+            flex: 1;
+            padding-top: 0.25rem;
         }
         
         .step-content h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
         
         .step-content p {
@@ -179,128 +437,203 @@
             font-size: 0.95rem;
         }
         
+        .step-content em {
+            color: var(--orange);
+            font-style: normal;
+            font-weight: 400;
+        }
+        
         .substeps {
             list-style: none;
-            margin-top: 0.75rem;
-            padding-left: 0;
+            margin-top: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-deep);
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
         
         .substeps li {
             color: var(--text-muted);
-            padding: 0.3rem 0;
-            padding-left: 1.5rem;
+            padding: 0.4rem 0;
+            padding-left: 1.75rem;
             position: relative;
+            font-size: 0.9rem;
         }
         
         .substeps li::before {
             content: "→";
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--lime);
+            font-family: 'JetBrains Mono', monospace;
         }
         
-        .source-links {
-            margin-top: 1rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        .source-links a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        
-        .source-links a:hover {
-            text-decoration: underline;
-        }
-        
-        .support {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border: 1px solid var(--purple);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .support h2 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-        
-        .support p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .referral-btn {
-            display: inline-block;
-            background: var(--purple);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
+        .substeps li strong {
+            color: var(--text);
             font-weight: 600;
-            transition: opacity 0.2s;
         }
         
-        .referral-btn:hover {
-            opacity: 0.9;
-        }
-        
+        /* Requirements */
         .requirements {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 2rem 0;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
         }
         
         .requirements h2 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.25rem;
         }
         
         .requirements ul {
             list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 2rem;
         }
         
         .requirements li {
             color: var(--text-muted);
-            padding: 0.25rem 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         .requirements li::before {
-            content: "✓ ";
-            color: var(--green);
+            content: "✓";
+            color: var(--lime);
+            font-weight: bold;
         }
         
+        /* Support Section */
+        .support {
+            position: relative;
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .support::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-1);
+            opacity: 0.05;
+        }
+        
+        .support::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 20px;
+            padding: 1px;
+            background: var(--gradient-1);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+            pointer-events: none;
+        }
+        
+        .support h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .support > p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 480px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        
+        .referral-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-1);
+            background-size: 200% 200%;
+            color: var(--bg);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .referral-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px -15px var(--magenta);
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
-            padding: 3rem 0;
+            padding: 4rem 0 3rem;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         footer a {
-            color: var(--accent);
+            color: var(--cyan);
             text-decoration: none;
         }
         
         footer a:hover {
             text-decoration: underline;
         }
+        
+        /* Scanline effect */
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.03) 2px,
+                rgba(0, 0, 0, 0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="scanlines"></div>
+    
     <div class="container">
         <header>
-            <div class="logo">🚀</div>
+            <div class="logo-container">
+                <span class="logo">⚡</span>
+                <span class="badge">v1.0</span>
+            </div>
             <h1>AI Bootstrap</h1>
-            <p class="tagline">Set up your Mac for AI coding in one command</p>
+            <p class="tagline">Set up your Mac for AI-powered coding in one command</p>
         </header>
         
         <section class="command-section">
@@ -317,32 +650,32 @@
         
         <section class="features">
             <div class="feature">
-                <div class="feature-icon">🍺</div>
+                <span class="feature-icon">🍺</span>
                 <h3>Homebrew</h3>
                 <p>Package manager for macOS</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">📦</div>
+                <span class="feature-icon">📦</span>
                 <h3>Git</h3>
                 <p>Version control</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">💚</div>
+                <span class="feature-icon">💚</span>
                 <h3>Node.js LTS</h3>
-                <p>Via NVM for easy version management</p>
+                <p>Via NVM for easy versions</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🐙</div>
+                <span class="feature-icon">🐙</span>
                 <h3>GitHub CLI</h3>
                 <p>Authenticate and manage repos</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🤖</div>
+                <span class="feature-icon">🤖</span>
                 <h3>Codex CLI</h3>
                 <p>OpenAI's coding assistant</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🧠</div>
+                <span class="feature-icon">🧠</span>
                 <h3>Claude Code</h3>
                 <p>Anthropic's coding assistant</p>
             </div>
@@ -388,7 +721,7 @@
                 <div class="step-content">
                     <h3>Follow the prompts</h3>
                     <p>The script will guide you through each step with clear explanations. It will ask your permission before installing anything. Just read what it says and type <strong>y</strong> (yes) or <strong>n</strong> (no) when asked.</p>
-                    <p style="margin-top: 0.5rem;"><em>Tip: When it asks for your password, type your Mac login password. You won't see any characters appear — that's normal! Just type it and press Enter.</em></p>
+                    <p style="margin-top: 0.75rem;"><em>Tip: When it asks for your password, type your Mac login password. You won't see any characters appear — that's normal! Just type it and press Enter.</em></p>
                 </div>
             </div>
         </section>
