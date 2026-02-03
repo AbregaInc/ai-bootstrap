@@ -440,23 +440,23 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             padding: 6px 10px;
-            border-radius: 999px;
+            border-radius: 2px;
+            border: 1px solid rgba(0, 0, 0, 0.22);
+            background: #f7f5f2;
+            color: var(--black);
         }
 
         .status-badge.required {
-            background: #1f3a56;
-            color: var(--white);
+            border-left: 3px solid var(--black);
         }
 
         .status-badge.recommended {
-            background: #1b5b43;
-            color: var(--white);
+            border-left: 3px solid var(--orange);
         }
 
         .status-badge.optional {
-            background: #ece9e6;
-            color: #2a2a2a;
-            border: 1px solid rgba(0,0,0,0.16);
+            color: var(--gray);
+            border-left: 3px solid var(--gray-light);
         }
 
         .start-grid {

@@ -7,12 +7,9 @@
     --gray: #575757;
     --gray-light: #8e8e8e;
     --line: rgba(0, 0, 0, 0.12);
-    --required-bg: #1f3a56;
-    --required-fg: #ffffff;
-    --recommended-bg: #1b5b43;
-    --recommended-fg: #ffffff;
-    --optional-bg: #ece9e6;
-    --optional-fg: #2e2e2e;
+    --badge-bg: #f7f5f2;
+    --badge-fg: #1e1e1e;
+    --badge-border: rgba(0, 0, 0, 0.22);
 }
 
 * {
@@ -306,8 +303,11 @@ body {
 }
 
 .badge {
-    padding: 5px 8px;
-    border-radius: 999px;
+    padding: 5px 9px;
+    border-radius: 2px;
+    border: 1px solid var(--badge-border);
+    background: var(--badge-bg);
+    color: var(--badge-fg);
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -315,19 +315,16 @@ body {
 }
 
 .badge.required {
-    background: var(--required-bg);
-    color: var(--required-fg);
+    border-left: 3px solid var(--black);
 }
 
 .badge.recommended {
-    background: var(--recommended-bg);
-    color: var(--recommended-fg);
+    border-left: 3px solid var(--orange);
 }
 
 .badge.optional {
-    background: var(--optional-bg);
-    color: var(--optional-fg);
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: var(--gray);
+    border-left: 3px solid var(--gray-light);
 }
 
 .actions {
