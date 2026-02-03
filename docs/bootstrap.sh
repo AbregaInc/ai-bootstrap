@@ -298,6 +298,15 @@ install_ai_tools() {
     echo "     AI coding assistant from the creators of Claude"
     echo ""
     
+    # Amp
+    echo ""
+    if ask_yes_no "Install Amp (Sourcegraph)? Free \$10/day ad-supported tier available"; then
+        print_step "Installing Amp..."
+        curl -fsSL https://ampcode.com/install.sh | bash
+        print_success "Amp installed!"
+        print_info "Run 'amp' to start using it. New users get \$10/day free (ad-supported)."
+    fi
+    
     # Codex CLI
     echo ""
     if ask_yes_no "Install Codex CLI (OpenAI)?"; then
@@ -309,11 +318,11 @@ install_ai_tools() {
     
     # OpenCode
     echo ""
-    if ask_yes_no "Install OpenCode?"; then
+    if ask_yes_no "Install OpenCode? Supports many free models (Gemini, Copilot, etc.)"; then
         print_step "Installing OpenCode..."
         npm install -g opencode-ai
         print_success "OpenCode installed!"
-        print_info "Run 'opencode' to start using it."
+        print_info "Run 'opencode' to start. Supports free models like Gemini, GitHub Copilot, and more."
     fi
     
     # Claude Code
