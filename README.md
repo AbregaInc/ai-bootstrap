@@ -11,7 +11,8 @@ A friendly script that helps beginners set up their Mac for AI-assisted coding.
 | **NVM** | Node version manager |
 | **Node.js LTS** | JavaScript runtime |
 | **GitHub CLI** | GitHub from the command line |
-| **AI Tools** | Codex, OpenCode, and/or Claude Code |
+| **Ghostty** | Modern GPU-accelerated terminal |
+| **AI Tools** | Amp, Codex, OpenCode, Claude Code, Kilo Code |
 
 ## Quick Start
 
@@ -73,6 +74,26 @@ xcode-select --install
 Run authentication manually:
 ```bash
 gh auth login
+```
+
+## Testing
+
+### Automated (headless)
+
+Fully automated test in a Tart macOS VM - no clicking required:
+
+```bash
+./test/run-test-auto.sh
+```
+
+Requires Apple Silicon Mac. Installs `sshpass` if needed.
+
+### Interactive
+
+Manual testing with VM GUI:
+
+```bash
+./test/run-test.sh
 ```
 
 ## License
