@@ -280,9 +280,36 @@ setup_github_auth() {
     press_enter
 }
 
+# Install Ghostty terminal
+install_ghostty() {
+    print_header "Step 6: Ghostty Terminal (Optional)"
+    
+    echo "Ghostty is a modern, GPU-accelerated terminal emulator."
+    echo "Some AI coding tools (like OpenCode) work better in Ghostty"
+    echo "than in the default macOS Terminal."
+    echo ""
+    
+    if [[ -d "/Applications/Ghostty.app" ]] || command -v ghostty &> /dev/null; then
+        print_success "Ghostty is already installed!"
+    else
+        if ask_yes_no "Install Ghostty? (Recommended for best AI tool experience)"; then
+            print_step "Installing Ghostty..."
+            brew install --cask ghostty
+            print_success "Ghostty installed!"
+            print_info "You can find Ghostty in your Applications folder."
+            print_info "Tip: Use Ghostty instead of Terminal for AI coding tools."
+        else
+            print_warning "Skipping Ghostty installation."
+            print_info "You can install it later with: brew install --cask ghostty"
+        fi
+    fi
+    
+    press_enter
+}
+
 # Install AI Coding Tools
 install_ai_tools() {
-    print_header "Step 6: AI Coding Tools"
+    print_header "Step 7: AI Coding Tools"
     
     echo "Now for the fun part! Choose which AI coding assistants to install."
     echo ""
@@ -367,6 +394,7 @@ show_completion() {
     command -v node &> /dev/null && print_success "Node.js: $(node --version)"
     command -v npm &> /dev/null && print_success "NPM: $(npm --version)"
     command -v gh &> /dev/null && print_success "GitHub CLI: $(gh --version | head -1)"
+    [[ -d "/Applications/Ghostty.app" ]] && print_success "Ghostty Terminal"
     
     echo ""
     echo -e "${BOLD}AI Coding Tools:${NC}"
@@ -378,6 +406,7 @@ show_completion() {
     print_header "Next Steps"
     
     echo -e "1. ${BOLD}Open a new terminal${NC} to ensure all changes take effect"
+    echo "   (If you installed Ghostty, try using it instead of Terminal!)"
     echo ""
     echo -e "2. ${BOLD}Get API keys${NC} for the AI tools you installed:"
     echo "   • OpenAI (for Codex): https://platform.openai.com/api-keys"
@@ -399,6 +428,7 @@ main() {
     install_nvm_node
     install_github_cli
     setup_github_auth
+    install_ghostty
     install_ai_tools
     show_completion
 }
