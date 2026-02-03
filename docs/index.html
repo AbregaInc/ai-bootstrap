@@ -214,6 +214,43 @@
             text-decoration: underline;
         }
         
+        .support {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid var(--purple);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .support h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .support p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .referral-btn {
+            display: inline-block;
+            background: var(--purple);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+        
+        .referral-btn:hover {
+            opacity: 0.9;
+        }
+        
         .requirements {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -363,6 +400,12 @@
                 <li>Admin password for your Mac</li>
                 <li>Internet connection</li>
             </ul>
+        </section>
+        
+        <section class="support">
+            <h2>🙏 Support This Project</h2>
+            <p>If you don't have a Claude account yet, you can sign up using our referral link. It's free to get started, and it helps support the ongoing development of this tool.</p>
+            <a href="https://claude.ai/referral/3BTrBcpEyA" class="referral-btn" target="_blank">Sign up for Claude →</a>
         </section>
         
         <footer>
