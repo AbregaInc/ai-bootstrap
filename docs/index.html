@@ -132,6 +132,21 @@
         /* Hero section */
         .hero {
             margin-bottom: 72px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: end;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+        
+        .hero-left {
+            
         }
         
         .hero-label {
@@ -160,19 +175,23 @@
             letter-spacing: -0.03em;
             line-height: 0.95;
             text-transform: uppercase;
-            margin-bottom: 24px;
         }
         
         .hero-title span {
             display: block;
         }
         
+        .hero-right {
+            padding-bottom: 12px;
+        }
+        
         .hero-subtitle {
             font-size: 18px;
             font-weight: 400;
             color: var(--gray);
-            max-width: 520px;
             line-height: 1.7;
+            border-left: 2px solid var(--orange);
+            padding-left: 20px;
         }
         
         /* Command block */
@@ -629,12 +648,16 @@
         </header>
         
         <section class="hero">
-            <div class="hero-label">Autonomous Setup Protocol</div>
-            <h1 class="hero-title">
-                <span>AI</span>
-                <span>Bootstrap</span>
-            </h1>
-            <p class="hero-subtitle">One command to configure your Mac for AI-assisted development. Installs all required tooling with guided authentication.</p>
+            <div class="hero-left">
+                <div class="hero-label">Autonomous Setup Protocol</div>
+                <h1 class="hero-title">
+                    <span>AI</span>
+                    <span>Bootstrap</span>
+                </h1>
+            </div>
+            <div class="hero-right">
+                <p class="hero-subtitle">One command to configure your Mac for AI-assisted development. Installs all required tooling with guided authentication.</p>
+            </div>
         </section>
         
         <section class="command-block">
