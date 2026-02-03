@@ -111,6 +111,10 @@
         }
         
         .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
             text-align: right;
         }
         
@@ -128,6 +132,36 @@
             color: var(--gray);
             margin-top: 4px;
         }
+
+        .header-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        .header-nav a {
+            border: 1px solid var(--black);
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            padding: 7px 10px;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+
+        .header-nav a:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .header-nav a.active {
+            background: var(--black);
+            color: var(--white);
+        }
         
         /* Hero section */
         .hero {
@@ -142,6 +176,24 @@
             .hero {
                 grid-template-columns: 1fr;
                 gap: 24px;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .header-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+
+            .header-right {
+                width: 100%;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .header-nav {
+                justify-content: flex-start;
             }
         }
         
@@ -365,6 +417,181 @@
             background: var(--black);
             color: var(--white);
             border-color: var(--black);
+        }
+
+        /* Guide entry */
+        .start-section {
+            margin-bottom: 52px;
+        }
+
+        .badge-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 10px;
+            border-radius: 999px;
+        }
+
+        .status-badge.required {
+            background: #1f3a56;
+            color: var(--white);
+        }
+
+        .status-badge.recommended {
+            background: #1b5b43;
+            color: var(--white);
+        }
+
+        .status-badge.optional {
+            background: #ece9e6;
+            color: #2a2a2a;
+            border: 1px solid rgba(0,0,0,0.16);
+        }
+
+        .start-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        @media (max-width: 980px) {
+            .start-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .start-card {
+            background: var(--white);
+            border: 1px solid var(--black);
+            padding: 22px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .start-eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        .start-title {
+            font-size: 23px;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            line-height: 1.05;
+        }
+
+        .start-copy {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .start-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .start-actions a {
+            border: 1px solid var(--black);
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            padding: 9px 11px;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+
+        .start-actions a:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .start-actions a.primary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .start-actions a.primary:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+        }
+
+        .stacks-section {
+            margin-bottom: 60px;
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        @media (max-width: 980px) {
+            .stack-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stack-item {
+            background: var(--white);
+            border: 1px solid var(--black);
+            padding: 18px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .stack-title {
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .stack-copy {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .stack-item a {
+            align-self: flex-start;
+            border: 1px solid var(--black);
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            padding: 8px 10px;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .stack-item a:hover {
+            background: var(--black);
+            color: var(--white);
         }
         
         /* Modules grid */
@@ -671,6 +898,8 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            gap: 12px;
+            flex-wrap: wrap;
             padding-top: 32px;
             border-top: 1px solid var(--black);
         }
@@ -699,6 +928,51 @@
             letter-spacing: 0.1em;
             color: var(--gray-light);
             margin-top: 4px;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .footer-nav a {
+            border: 1px solid var(--black);
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            padding: 7px 9px;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .footer-nav a:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .footer-nav a.active {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        @media (max-width: 980px) {
+            .footer {
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                text-align: left;
+            }
+
+            .footer-nav {
+                justify-content: flex-start;
+            }
         }
         
         /* Corner marks */
@@ -738,8 +1012,18 @@
                 <div class="header-title">AI Development Environment Bootstrap</div>
             </div>
             <div class="header-right">
-                <div class="version-tag">Revision 1.0</div>
-                <div class="date-tag">2026.02.02</div>
+                <div>
+                    <div class="version-tag">Revision 1.1</div>
+                    <div class="date-tag">2026.02.03</div>
+                </div>
+                <nav class="header-nav" aria-label="Site navigation">
+                    <a class="active" href="./">Home</a>
+                    <a href="./guides/">Guides</a>
+                    <a href="./guides/terminal/">Terminal</a>
+                    <a href="./guides/ui/">UI</a>
+                    <a href="./guides/github-account.html">GitHub Account</a>
+                    <a href="./no-cli.html">No-CLI Catalog</a>
+                </nav>
             </div>
         </header>
         
@@ -755,9 +1039,62 @@
                 <p class="hero-subtitle">One command to configure your Mac for AI-assisted development. Installs all required tooling with guided authentication.</p>
             </div>
         </section>
+
+        <section class="start-section">
+            <div class="section-header">
+                <span class="section-number">00</span>
+                <span class="section-title">Start Here</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="badge-legend">
+                <span class="status-badge required">Required</span>
+                <span class="status-badge recommended">Recommended</span>
+                <span class="status-badge optional">Optional</span>
+            </div>
+            <div class="start-grid">
+                <article class="start-card">
+                    <div class="start-eyebrow">Step 0</div>
+                    <h2 class="start-title">Create GitHub Account</h2>
+                    <p class="start-copy">Do this first. GitHub authentication is needed for repository cloning, syncing, and both CLI and UI workflows.</p>
+                    <div class="badge-legend">
+                        <span class="status-badge required">Required</span>
+                    </div>
+                    <div class="start-actions">
+                        <a class="primary" href="./guides/github-account.html">Open Account Guide</a>
+                        <a href="https://github.com/signup" target="_blank">Create Account</a>
+                    </div>
+                </article>
+
+                <article class="start-card">
+                    <div class="start-eyebrow">Path A</div>
+                    <h2 class="start-title">Terminal Workflow</h2>
+                    <p class="start-copy">Run the bootstrap script and use CLI agents for command-line-first coding and automation.</p>
+                    <div class="badge-legend">
+                        <span class="status-badge recommended">Recommended (CLI users)</span>
+                    </div>
+                    <div class="start-actions">
+                        <a class="primary" href="./guides/terminal/">Open Terminal Guide</a>
+                        <a href="#terminal-command">Jump to Command</a>
+                    </div>
+                </article>
+
+                <article class="start-card">
+                    <div class="start-eyebrow">Path B</div>
+                    <h2 class="start-title">UI Apps Workflow</h2>
+                    <p class="start-copy">Use GitHub Desktop and app/extension tools for a fully visual setup path with no CLI required.</p>
+                    <div class="badge-legend">
+                        <span class="status-badge recommended">Recommended (UI users)</span>
+                    </div>
+                    <div class="start-actions">
+                        <a class="primary" href="./guides/ui/">Open UI Guide</a>
+                        <a href="./no-cli.html">Browse App Catalog</a>
+                    </div>
+                </article>
+            </div>
+        </section>
         
-        <section class="command-block">
-            <div class="command-label">Terminal Execution Command</div>
+        <section id="terminal-command" class="command-block">
+            <div class="command-label">Terminal Path - Recommended for CLI Users</div>
             <div class="command-row">
                 <code class="command-text">curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash</code>
                 <button class="copy-btn" onclick="copyCommand(this)">Copy</button>
@@ -765,6 +1102,7 @@
             <div class="command-meta">
                 <a href="https://github.com/AbregaInc/ai-bootstrap">View Repository</a>
                 <a href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh">View Source</a>
+                <a href="./guides/terminal/">Open Terminal Guide</a>
             </div>
         </section>
 
@@ -779,10 +1117,35 @@
                 <a class="noncli-btn secondary" href="./no-cli.html">Open No-CLI Catalog</a>
             </div>
         </section>
+
+        <section class="stacks-section">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <span class="section-title">Recommended Stacks</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="stack-grid">
+                <article class="stack-item">
+                    <h3 class="stack-title">GitHub Desktop + Codex App</h3>
+                    <p class="stack-copy">Best default for users who want a visual flow and strong AI coding performance.</p>
+                    <a href="./guides/ui/">Open UI Guide</a>
+                </article>
+                <article class="stack-item">
+                    <h3 class="stack-title">GitHub Desktop + Claude Desktop</h3>
+                    <p class="stack-copy">Great alternative for users who prefer Claude while keeping a no-terminal setup.</p>
+                    <a href="./guides/ui/">Open UI Guide</a>
+                </article>
+                <article class="stack-item">
+                    <h3 class="stack-title">Terminal + Codex CLI</h3>
+                    <p class="stack-copy">Best for command-line users who want automation, scripting, and fast edit cycles.</p>
+                    <a href="./guides/terminal/">Open Terminal Guide</a>
+                </article>
+            </div>
+        </section>
         
         <section class="modules-section">
             <div class="section-header">
-                <span class="section-number">01</span>
+                <span class="section-number">02</span>
                 <span class="section-title">Installed Modules</span>
                 <div class="section-line"></div>
             </div>
@@ -842,7 +1205,7 @@
         
         <section class="instructions-section">
             <div class="section-header">
-                <span class="section-number">02</span>
+                <span class="section-number">03</span>
                 <span class="section-title">Execution Protocol</span>
                 <div class="section-line"></div>
             </div>
@@ -904,6 +1267,14 @@
             <div class="footer-right">
                 <div class="footer-id">ABREGA INC.</div>
                 <div class="footer-meta">AI-BOOTSTRAP / PRG.01-R1</div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a class="active" href="./">Home</a>
+                    <a href="./guides/">Guides</a>
+                    <a href="./guides/terminal/">Terminal</a>
+                    <a href="./guides/ui/">UI</a>
+                    <a href="./guides/github-account.html">GitHub Account</a>
+                    <a href="./no-cli.html">No-CLI Catalog</a>
+                </nav>
             </div>
         </footer>
     </div>
