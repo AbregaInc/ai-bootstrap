@@ -194,12 +194,21 @@ echo ""
 
 SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-print_step "Starting VM with shared directory..."
+print_step "Starting VM with shared directory and bridged networking..."
 print_success "bootstrap.sh will be available at: /Volumes/My Shared Files/bootstrap.sh"
 echo ""
 
-# Run VM with shared directory - auto-mounts to /Volumes/My Shared Files on macOS guests
-tart run --dir="$SCRIPT_DIR" "$VM_NAME"
+# Get the active network interface
+ACTIVE_IF=$(route get default 2>/dev/null | grep interface | awk '{print $2}')
+if [[ -z "$ACTIVE_IF" ]]; then
+    ACTIVE_IF="en0"
+fi
+
+print_info "Using network interface: $ACTIVE_IF"
+echo ""
+
+# Run VM with shared directory and bridged networking for full internet access
+tart run --dir="$SCRIPT_DIR" --net-bridged="$ACTIVE_IF" "$VM_NAME"
 
 # ============================================================================
 # LAYER 5: Cleanup prompt
