@@ -3,142 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Bootstrap Guides - Terminal Detail</title>
-    <meta name="description" content="Detailed terminal onboarding branch for AI Bootstrap after selecting the terminal path in Guided Setup.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../guides.css">
+    <title>Redirecting - Terminal Path</title>
+    <meta http-equiv="refresh" content="0; url=../index.html#terminal-path">
+    <link rel="canonical" href="../index.html#terminal-path">
 </head>
 <body>
-    <div class="grid-bg"></div>
-
-    <main class="page">
-        <header class="topbar">
-            <div class="brand">
-                <div class="brand-id">PRG.01</div>
-                <div class="brand-title">Terminal Detail</div>
-            </div>
-            <nav class="topnav" aria-label="Guide navigation">
-                <a href="../../index.html">Home</a>
-                <a href="../index.html">Guided Setup</a>
-                <a class="active" href="./">Terminal Detail</a>
-                <a href="../ui/">UI Detail</a>
-                <a href="../github-account.html">Account Detail</a>
-                <a href="../../no-cli.html">No-CLI Catalog</a>
-            </nav>
-        </header>
-
-        <section class="hero">
-            <div class="hero-kicker">Path A Detail</div>
-            <h1>Terminal Workflow</h1>
-            <p>Use this page only for deeper instructions while completing the terminal branch in the main Guided Setup flow.</p>
-        </section>
-
-        <div class="section-header">
-            <span class="section-num">01</span>
-            <span class="section-title">Required Setup</span>
-            <div class="section-line"></div>
-        </div>
-
-        <section class="card-grid">
-            <article class="card">
-                <div class="eyebrow">Step 1</div>
-                <h3>GitHub Account</h3>
-                <p>Complete Step 0 first if you have not finished account setup yet.</p>
-                <div class="badges">
-                    <span class="badge required">Required</span>
-                </div>
-                <div class="actions">
-                    <a class="primary" href="../index.html#step-0">Complete Step 0</a>
-                    <a href="../github-account.html">Open Account Detail</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <div class="eyebrow">Step 2</div>
-                <h3>Run Bootstrap Script</h3>
-                <p>Install Homebrew, Git, Node.js, GitHub CLI, Ghostty, and CLI tools through one guided flow.</p>
-                <div class="badges">
-                    <span class="badge required">Required</span>
-                </div>
-                <div class="command-panel">
-                    <div class="command-label">Terminal Command</div>
-                    <div class="command-row">
-                        <code class="command-code" id="bootstrap-command">curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash</code>
-                        <button class="command-copy" type="button" onclick="copyBootstrapCommand(this)">Copy</button>
-                    </div>
-                </div>
-                <div class="actions">
-                    <a class="primary" href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh" target="_blank" rel="noopener">View Script Source</a>
-                    <a href="../index.html#terminal-path">Return To Guided Setup</a>
-                </div>
-            </article>
-        </section>
-
-        <div class="section-header">
-            <span class="section-num">02</span>
-            <span class="section-title">Choose Primary Tool</span>
-            <div class="section-line"></div>
-        </div>
-
-        <section class="card-grid three">
-            <article class="card">
-                <div class="eyebrow">Primary CLI</div>
-                <h3>Codex CLI</h3>
-                <p>Strong default for terminal-first coding. Start here unless your team already standardized on another tool.</p>
-                <div class="badges">
-                    <span class="badge recommended">Recommended</span>
-                </div>
-            </article>
-
-            <article class="card">
-                <div class="eyebrow">Alternative CLI</div>
-                <h3>Claude Code</h3>
-                <p>Good alternative for Anthropic-first workflows and teams already standardized on Claude tooling.</p>
-                <div class="badges">
-                    <span class="badge optional">Optional</span>
-                </div>
-            </article>
-
-            <article class="card">
-                <div class="eyebrow">Alternative CLI</div>
-                <h3>OpenCode CLI</h3>
-                <p>Flexible if you want many model providers and plugin-like extension points for custom workflows.</p>
-                <div class="badges">
-                    <span class="badge optional">Optional</span>
-                </div>
-                <div class="actions">
-                    <a href="../ui/opencode.html">See OpenCode Branch</a>
-                </div>
-            </article>
-        </section>
-
-        <p class="note">After choosing a tool, run one full edit/test/commit flow in a real repository and then continue from the main Guided Setup page.</p>
-
-        <footer class="footer">
-            <div class="footmeta">ABREGA INC. - AI-BOOTSTRAP GUIDE SERIES</div>
-            <nav class="footnav" aria-label="Footer navigation">
-                <a href="../../index.html">Home</a>
-                <a href="../index.html">Guided Setup</a>
-                <a class="active" href="./">Terminal Detail</a>
-                <a href="../index.html#ui-path">UI Path</a>
-                <a href="../index.html#step-0">Step 0</a>
-            </nav>
-        </footer>
-    </main>
+    <p>Redirecting to the terminal path in Guided Setup...</p>
+    <p><a href="../index.html#terminal-path">Continue to terminal path</a></p>
     <script>
-        function copyBootstrapCommand(btn) {
-            const command = 'curl -fsSL https://abregainc.github.io/ai-bootstrap/bootstrap.sh | bash';
-            navigator.clipboard.writeText(command).then(() => {
-                btn.textContent = 'Copied';
-                btn.classList.add('copied');
-                setTimeout(() => {
-                    btn.textContent = 'Copy';
-                    btn.classList.remove('copied');
-                }, 2000);
-            });
-        }
+        window.location.replace('../index.html#terminal-path');
     </script>
 </body>
 </html>

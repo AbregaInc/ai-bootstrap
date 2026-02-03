@@ -22,9 +22,9 @@
             <nav class="topnav" aria-label="Guide navigation">
                 <a href="../index.html">Home</a>
                 <a class="active" href="./index.html">Guided Setup</a>
-                <a href="./terminal/">Terminal Details</a>
-                <a href="./ui/">UI Details</a>
-                <a href="./github-account.html">GitHub Account Detail</a>
+                <a href="#terminal-path">Terminal Path</a>
+                <a href="#ui-path">UI Path</a>
+                <a href="#step-0">Step 0</a>
                 <a href="../no-cli.html">No-CLI Catalog</a>
             </nav>
         </header>
@@ -32,7 +32,7 @@
         <section class="hero">
             <div class="hero-kicker">Single Flow</div>
             <h1>Setup Guide</h1>
-            <p>Everything starts here. Complete Step 0 once, pick one path (Terminal or UI), and finish that path end-to-end. Use detail pages only when you need deeper instructions.</p>
+            <p>Everything starts here. Complete Step 0 once, pick one path (Terminal or UI), and finish that path end-to-end.</p>
         </section>
 
         <div id="step-0" class="section-header">
@@ -57,7 +57,7 @@
                 </ul>
                 <div class="actions">
                     <a class="primary" href="https://github.com/signup" target="_blank" rel="noopener">Create GitHub Account</a>
-                    <a href="./github-account.html">Open Account Detail</a>
+                    <a href="#choose-path">Continue To Path Selection</a>
                 </div>
             </article>
         </section>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="actions">
                     <a class="primary" href="#terminal-path">Continue Terminal Path</a>
-                    <a href="./terminal/">Open Terminal Detail</a>
+                    <a href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh" target="_blank" rel="noopener">View Script Source</a>
                 </div>
             </article>
 
@@ -91,26 +91,28 @@
                 </div>
                 <div class="actions">
                     <a class="primary" href="#ui-path">Continue UI Path</a>
-                    <a href="./ui/">Open UI Detail</a>
+                    <a href="../no-cli.html">Open No-CLI Catalog</a>
                 </div>
             </article>
         </section>
 
         <p class="note">Do not run both paths during onboarding. Choose one primary path, finish it, and optionally add tools from other paths later.</p>
 
-        <div id="terminal-path" class="section-header">
-            <span class="section-num">02A</span>
-            <span class="section-title">Terminal Path</span>
+        <div class="section-header">
+            <span class="section-num">02</span>
+            <span class="section-title">Complete Your Chosen Path</span>
             <div class="section-line"></div>
         </div>
 
         <section class="card-grid">
-            <article class="card">
-                <div class="eyebrow">Step A1</div>
-                <h3>Run Bootstrap Script</h3>
-                <p>Install the baseline tooling in one guided terminal flow.</p>
+            <article id="terminal-path" class="card">
+                <div class="eyebrow">02A - Terminal Path</div>
+                <h3>Run Bootstrap + Pick Main CLI</h3>
+                <p>Install baseline tooling, then choose one main CLI tool first.</p>
                 <div class="badges">
                     <span class="badge required">Required (Terminal Path)</span>
+                    <span class="badge recommended">Codex CLI Default</span>
+                    <span class="badge optional">Claude Code / OpenCode CLI</span>
                 </div>
                 <div class="command-panel">
                     <div class="command-label">Terminal Command</div>
@@ -119,57 +121,23 @@
                         <button class="command-copy" type="button" onclick="copyBootstrapCommand(this)">Copy</button>
                     </div>
                 </div>
-                <div class="actions">
-                    <a class="primary" href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh" target="_blank" rel="noopener">View Script Source</a>
-                    <a href="./terminal/">Open Terminal Detail</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <div class="eyebrow">Step A2</div>
-                <h3>Pick Your Main CLI Tool</h3>
-                <p>Pick one primary tool first, then add alternatives later if needed.</p>
-                <div class="badges">
-                    <span class="badge recommended">Codex CLI (Default)</span>
-                    <span class="badge optional">Claude Code / OpenCode CLI</span>
-                </div>
                 <ul class="checklist">
                     <li>Open a real repository.</li>
                     <li>Run one edit/test/commit cycle.</li>
                     <li>Confirm auth and model access are working.</li>
                 </ul>
                 <div class="actions">
-                    <a class="primary" href="./terminal/">Review Terminal Steps</a>
+                    <a class="primary" href="https://raw.githubusercontent.com/AbregaInc/ai-bootstrap/main/bootstrap.sh" target="_blank" rel="noopener">View Script Source</a>
                     <a href="#optional-branches">Optional Branches</a>
                 </div>
             </article>
-        </section>
 
-        <div id="ui-path" class="section-header">
-            <span class="section-num">02B</span>
-            <span class="section-title">UI Apps Path</span>
-            <div class="section-line"></div>
-        </div>
-
-        <section class="card-grid">
-            <article class="card">
-                <div class="eyebrow">Step B1</div>
-                <h3>Install GitHub Desktop</h3>
-                <p>Use GitHub Desktop for sign-in, repository cloning, branch switching, and push/pull flow.</p>
+            <article id="ui-path" class="card">
+                <div class="eyebrow">02B - UI Apps Path</div>
+                <h3>Install Desktop + Pick Main UI Tool</h3>
+                <p>Set up GitHub Desktop first, then choose one primary UI tool.</p>
                 <div class="badges">
                     <span class="badge required">Required (UI Path)</span>
-                </div>
-                <div class="actions">
-                    <a class="primary" href="https://desktop.github.com/download/" target="_blank" rel="noopener">Download GitHub Desktop</a>
-                    <a href="https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop" target="_blank" rel="noopener">Auth Guide</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <div class="eyebrow">Step B2</div>
-                <h3>Pick Your Main UI Tool</h3>
-                <p>Choose one primary app first. You can add extensions and additional apps after baseline setup is stable.</p>
-                <div class="badges">
                     <span class="badge recommended">Codex App / Claude Desktop</span>
                     <span class="badge optional">Antigravity / OpenCode Branch</span>
                 </div>
@@ -179,8 +147,8 @@
                     <li>Commit and push through GitHub Desktop.</li>
                 </ul>
                 <div class="actions">
-                    <a class="primary" href="./ui/">Review UI Steps</a>
-                    <a href="../no-cli.html">Open No-CLI Catalog</a>
+                    <a class="primary" href="../no-cli.html">Open No-CLI Catalog</a>
+                    <a href="./ui/opencode.html">Open OpenCode Branch</a>
                 </div>
             </article>
         </section>
@@ -195,7 +163,7 @@
             <article class="card">
                 <div class="eyebrow">Optional</div>
                 <h3>OpenCode Plugin Branch</h3>
-                <p>If you need deeper provider/plugin customization, use the OpenCode branch after your main path is working.</p>
+                <p>If you need deeper customization, use the OpenCode branch for curated repos like oh-my-opencode and dynamic-context-pruning.</p>
                 <div class="badges">
                     <span class="badge optional">Optional</span>
                 </div>
