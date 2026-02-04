@@ -34,7 +34,7 @@
             <p>Separate from the UI and CLI paths. Use this only if you want to run your own agent infrastructure and are ready to manage isolation, auth, and network hardening.</p>
         </section>
 
-        <p class="note"><strong>High-risk route.</strong> This topic is moving fast. Verify OpenClaw docs before every deploy, every upgrade, and every internet exposure change. This guide was updated February 4, 2026.</p>
+        <p class="note"><strong>High-risk route.</strong> This topic is moving fast. Verify OpenClaw docs before every deploy, every upgrade, and every internet exposure change. Read <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/" target="_blank" rel="noopener">The Lethal Trifecta</a> before setup, and do not connect OpenClaw to accounts, systems, or data you care about. This guide was updated February 4, 2026.</p>
 
         <div class="section-header">
             <span class="section-num">00</span>
@@ -94,15 +94,13 @@
             <article class="card">
                 <div class="logo-row">
                     <img class="tool-logo" src="../../digitalocean-logo.svg" alt="DigitalOcean logo">
-                    <span class="logo-glyph">VPS</span>
                 </div>
                 <div class="eyebrow">Cloud VM</div>
                 <h3>DigitalOcean (Good First VPS)</h3>
                 <p>Simple droplet-based setup with predictable networking. Keep OpenClaw private first, then publish only after auth and logging are proven.</p>
                 <div class="badges"><span class="badge recommended">Recommended</span></div>
                 <div class="actions">
-                    <a class="primary" href="https://docs.openclaw.ai/gateway/remote" target="_blank" rel="noopener">Remote Access Docs</a>
-                    <a href="https://www.digitalocean.com/docs/droplets/" target="_blank" rel="noopener">DigitalOcean Droplets</a>
+                    <a class="primary" href="https://www.digitalocean.com/community/tutorials/how-to-run-openclaw" target="_blank" rel="noopener">DigitalOcean OpenClaw Tutorial</a>
                     <a href="https://m.do.co/c/d6e249842a78" target="_blank" rel="noopener">Use Referral (Support Us)</a>
                 </div>
             </article>
@@ -110,23 +108,22 @@
             <article class="card">
                 <div class="logo-row">
                     <img class="tool-logo" src="../../cloudflare-logo.svg" alt="Cloudflare logo">
-                    <span class="logo-glyph">ZT</span>
                 </div>
                 <div class="eyebrow">Edge Access</div>
                 <h3>Cloudflare (Access + Tunnel)</h3>
                 <p>Use Cloudflare as a zero-trust front door. Expose dashboard/API through Access policy instead of raw public ports.</p>
                 <div class="badges"><span class="badge recommended">Recommended</span></div>
                 <div class="actions">
-                    <a class="primary" href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/" target="_blank" rel="noopener">Cloudflare Tunnel</a>
-                    <a href="https://developers.cloudflare.com/cloudflare-one/policies/access/" target="_blank" rel="noopener">Cloudflare Access</a>
-                    <a href="https://developers.cloudflare.com/ai-gateway/" target="_blank" rel="noopener">Cloudflare AI Gateway</a>
+                    <a class="primary" href="https://github.com/cloudflare/moltworker/blob/main/README.md" target="_blank" rel="noopener">Cloudflare moltworker Guide</a>
                 </div>
             </article>
 
             <article class="card">
                 <div class="logo-row">
-                    <span class="logo-glyph">ALT</span>
-                    <span class="logo-glyph">CLOUD</span>
+                    <img class="tool-logo" src="https://logo.clearbit.com/northflank.com" alt="Northflank logo">
+                    <img class="tool-logo" src="https://logo.clearbit.com/railway.app" alt="Railway logo">
+                    <img class="tool-logo" src="https://logo.clearbit.com/hetzner.com" alt="Hetzner logo">
+                    <img class="tool-logo" src="../../cloud-generic.svg" alt="Generic cloud icon">
                 </div>
                 <div class="eyebrow">Other Options</div>
                 <h3>Other Common Hosting Targets</h3>
@@ -134,7 +131,7 @@
                 <div class="badges"><span class="badge optional">Optional</span></div>
                 <div class="actions">
                     <a class="primary" href="https://docs.openclaw.ai/northflank" target="_blank" rel="noopener">Northflank Guide</a>
-                    <a href="https://docs.openclaw.ai/railway" target="_blank" rel="noopener">Railway Guide</a>
+                    <a href="https://docs.openclaw.ai/railway" target="_blank" rel="noopener">Railway Guide (Send Referral URL)</a>
                     <a href="https://docs.openclaw.ai/platforms/hetzner" target="_blank" rel="noopener">Hetzner Guide</a>
                 </div>
             </article>
