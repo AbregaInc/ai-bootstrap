@@ -221,6 +221,7 @@ body {
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1;
+    min-height: 2.1em;
 }
 
 .card h3 {
@@ -228,11 +229,21 @@ body {
     text-transform: uppercase;
     letter-spacing: -0.01em;
     line-height: 1.06;
+    min-height: 2.2em;
 }
 
 .card p {
     color: var(--gray);
     font-size: 15px;
+    min-height: 4.8em;
+}
+
+@media (max-width: 980px) {
+    .card h2,
+    .card h3,
+    .card p {
+        min-height: 0;
+    }
 }
 
 .command-panel {
