@@ -150,19 +150,16 @@
                     <img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Terminalicon2.png" alt="Terminal icon">
                     <img class="tool-logo" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&auto=format&n=4rYvG-uuZrMK_URE&q=85&s=da2032e9eac3b5d9bfe7eb96ca6a8a26" alt="OpenClaw logo">
                 </div>
-                <div class="eyebrow">Bootstrap</div>
-                <h3>Start In An Isolated Lab</h3>
-                <p>Do your first install in a disposable VM or dedicated old device so you can validate flows safely before touching cloud infrastructure.</p>
+                <div class="eyebrow">Install</div>
+                <h3>Run Basic Install</h3>
+                <p>Start with the official install script in an isolated environment, then continue setup only after the install succeeds.</p>
                 <div class="badges">
                     <span class="badge required">Required first run</span>
                 </div>
                 <div class="command-panel">
                     <div class="command-label">OpenClaw CLI</div>
                     <div class="command-row">
-                        <code class="command-code">openclaw onboard --install-daemon</code>
-                    </div>
-                    <div class="command-row">
-                        <code class="command-code">openclaw dashboard</code>
+                        <code class="command-code">curl -fsSL https://openclaw.ai/install.sh | bash</code>
                     </div>
                 </div>
                 <div class="actions">
@@ -170,7 +167,15 @@
                     <a href="https://docs.openclaw.ai/start/wizard" target="_blank" rel="noopener">Onboarding Wizard</a>
                 </div>
             </article>
+        </section>
 
+        <div class="section-header">
+            <span class="section-num">03</span>
+            <span class="section-title">Operational Guardrails</span>
+            <div class="section-line"></div>
+        </div>
+
+        <section class="card-grid">
             <article class="card">
                 <div class="logo-row">
                     <span class="logo-glyph">AUTH</span>
@@ -192,15 +197,7 @@
                     <a href="https://docs.openclaw.ai/providers/models" target="_blank" rel="noopener">Model Provider Setup</a>
                 </div>
             </article>
-        </section>
 
-        <div class="section-header">
-            <span class="section-num">03</span>
-            <span class="section-title">Operational Guardrails</span>
-            <div class="section-line"></div>
-        </div>
-
-        <section class="card-grid">
             <article class="card">
                 <div class="logo-row">
                     <span class="logo-glyph">OPS</span>
