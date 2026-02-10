@@ -21,7 +21,7 @@
             </div>
             <nav class="topnav" aria-label="Guide navigation">
                 <a href="../../index.html">Home</a>
-                <a href="../index.html">Guided Setup</a>
+                <a href="../">Guided Setup</a>
                 <a href="../terminal/">Terminal Path</a>
                 <a href="../ui/">UI Path</a>
                 <a class="active" href="./">OpenClaw Path</a>
@@ -35,6 +35,24 @@
         </section>
 
         <p class="note"><strong>High-risk route.</strong> This topic is moving fast. Verify OpenClaw docs before every deploy, every upgrade, and every internet exposure change. Read <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/" target="_blank" rel="noopener">The Lethal Trifecta</a> before setup, and do not connect OpenClaw to accounts, systems, or data you care about. This guide was updated February 4, 2026.</p>
+
+        <section style="margin-bottom: 2rem;">
+            <article class="card" style="background: #000; border: 1px solid #333; color: #fff;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 1rem; flex: 1;">
+                        <span class="logo-glyph" style="background: #ff6b00; color: #fff; flex-shrink: 0;">z0</span>
+                        <div>
+                            <div style="color: #aaa; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Managed Alternative</div>
+                            <h3 style="color: #fff; margin: 0.25rem 0;">Don't Want To Run It Yourself?</h3>
+                            <p style="color: #ccc; margin: 0;">Skip the infrastructure headaches. <strong style="color: #fff;">z0.ai</strong> gives you the same agentic capabilities without managing servers, security patches, or network hardening.</p>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a class="primary inverted" href="https://z0.ai" target="_blank" rel="noopener">Try z0.ai Instead</a>
+                    </div>
+                </div>
+            </article>
+        </section>
 
         <div class="section-header">
             <span class="section-num">00</span>
@@ -164,7 +182,35 @@
                 </div>
                 <div class="actions">
                     <a class="primary" href="https://docs.openclaw.ai/start/getting-started" target="_blank" rel="noopener">Getting Started</a>
-                    <a href="https://docs.openclaw.ai/start/wizard" target="_blank" rel="noopener">Onboarding Wizard</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="logo-row">
+                    <img class="tool-logo" src="https://mintcdn.com/clawdhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&auto=format&n=4rYvG-uuZrMK_URE&q=85&s=da2032e9eac3b5d9bfe7eb96ca6a8a26" alt="OpenClaw logo">
+                    <span class="logo-glyph">WIZ</span>
+                </div>
+                <div class="eyebrow">Configure</div>
+                <h3>Run The Onboarding Wizard</h3>
+                <p>The recommended way to configure OpenClaw. One guided flow sets up your Gateway, model providers, channels, daemon, and skills.</p>
+                <div class="badges">
+                    <span class="badge required">Required</span>
+                </div>
+                <div class="command-panel">
+                    <div class="command-label">OpenClaw CLI</div>
+                    <div class="command-row">
+                        <code class="command-code">openclaw onboard</code>
+                    </div>
+                </div>
+                <ul class="checklist">
+                    <li>Model/Auth: configure Anthropic, OpenAI, or other providers.</li>
+                    <li>Gateway: port, bind address, auth mode, Tailscale exposure.</li>
+                    <li>Channels: WhatsApp, Telegram, Discord, Signal, iMessage, and more.</li>
+                    <li>Daemon: installs LaunchAgent (macOS) or systemd unit (Linux).</li>
+                </ul>
+                <div class="actions">
+                    <a class="primary" href="https://docs.openclaw.ai/start/wizard" target="_blank" rel="noopener">Onboarding Wizard Docs</a>
+                    <a href="https://docs.openclaw.ai/reference/wizard" target="_blank" rel="noopener">Full Reference</a>
                 </div>
             </article>
         </section>
@@ -225,7 +271,7 @@
             <div class="footmeta">ABREGA INC. - AI-BOOTSTRAP GUIDE SERIES</div>
             <nav class="footnav" aria-label="Footer navigation">
                 <a href="../../index.html">Home</a>
-                <a href="../index.html">Guided Setup</a>
+                <a href="../">Guided Setup</a>
                 <a href="../terminal/">Terminal Path</a>
                 <a href="../ui/">UI Path</a>
                 <a class="active" href="./">OpenClaw Path</a>

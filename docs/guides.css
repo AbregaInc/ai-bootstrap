@@ -373,6 +373,16 @@ body {
     border-color: var(--orange);
 }
 
+.actions a.primary.inverted {
+    background: var(--orange);
+    border-color: var(--orange);
+}
+
+.actions a.primary.inverted:hover {
+    background: var(--black);
+    border-color: var(--black);
+}
+
 .note {
     background: #fff6ef;
     border: 1px solid rgba(240, 114, 60, 0.35);
